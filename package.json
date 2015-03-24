@@ -1,0 +1,25 @@
+{
+  "name": "react-plugin-boilerplate",
+  "description": "",
+  "author": "Juho Vepsalainen <bebraw@gmail.com>",
+  "version": "0.1.0",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bebraw/react-plugin-boilerplate.git"
+  },
+  "homepage": "https://github.com/bebraw/react-plugin-boilerplate",
+  "bugs": {
+    "url": "https://github.com/bebraw/react-plugin-boilerplate/issues"
+  },
+  "keywords": [],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/bebraw/react-plugin-boilerplate/blob/master/LICENSE"
+    }
+  ]
+}
