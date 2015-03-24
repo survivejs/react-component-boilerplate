@@ -15,6 +15,7 @@
   "main": "dist/boilerplate.js",
   "dependencies": {},
   "devDependencies": {
+    "babel-eslint": "^2.0.2",
     "css-loader": "^0.9.1",
     "eslint": "^0.17.1",
     "file-loader": "^0.8.1",
