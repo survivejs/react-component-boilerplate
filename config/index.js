@@ -8,13 +8,14 @@ var pkg = require('../package.json');
 
 var config = {
     filename: 'boilerplate',
-    library: 'Boilerplate'
+    library: 'Boilerplate',
+    demoDirectory: 'demo',
 };
 
 var common = {
     exports: {
         entry: [
-            './demos/index'
+            './' + config.demoDirectory + '/index'
         ],
         resolve: {
             extensions: ['', '.js', '.jsx', '.md', '.css', '.png', '.jpg'],
@@ -29,7 +30,7 @@ var commonLoaders = [
     },
     {
         test: /\.md$/,
-        loader: 'html!../loaders/markdown',
+        loader: 'html!highlight!markdown',
     },
     {
         test: /\.png$/,
@@ -39,6 +40,10 @@ var commonLoaders = [
         test: /\.jpg$/,
         loader: 'file-loader',
     },
+    {
+        test: /\.json$/,
+        loader: 'json-loader',
+    },
 ];
 
 exports.dev = extend(common, {
@@ -46,12 +51,12 @@ exports.dev = extend(common, {
     entry: [
         'webpack-dev-server/client?http://0.0.0.0:3000',
         'webpack/hot/only-dev-server',
-        './demos/index',
+        './' + config.demoDirectory + '/index',
     ],
     output: {
         path: __dirname,
         filename: 'bundle.js',
-        publicPath: '/demos/'
+        publicPath: '/' + config.demoDirectory + '/'
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -72,7 +77,7 @@ exports.dev = extend(common, {
 
 exports.ghpages = extend(common, {
     entry: [
-        './demos/index'
+        './' + config.demoDirectory + '/index'
     ],
     output: {
         path: './gh-pages',
