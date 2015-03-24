@@ -1,5 +1,5 @@
 [![build status](https://secure.travis-ci.org/bebraw/react-plugin-boilerplate.png)](http://travis-ci.org/bebraw/react-plugin-boilerplate)
-# react-plugin-boilerplate
+# react-plugin-boilerplate - Boilerplate for React.js plugins
 
 This is a simple boilerplate that has been developed to make it easier to develop React plugins. Pretty meta, eh?
 
