@@ -10,7 +10,7 @@
     "gh-pages": "webpack --config ./config/webpack.gh-pages.js",
     "deploy-gh-pages": "node ./config/deploy-gh-pages.js",
     "dist": "webpack --config ./config/webpack.dist.js && webpack --config ./config/webpack.dist.min.js",
-    "lint": "eslint __tests__ && eslint config && eslint lib"
+    "lint": "eslint config && eslint demo && eslint lib && eslint __tests__"
   },
   "main": "dist/boilerplate.js",
   "dependencies": {},
@@ -18,6 +18,7 @@
     "babel-eslint": "^2.0.2",
     "css-loader": "^0.9.1",
     "eslint": "^0.17.1",
+    "eslint-plugin-react": "^1.6.1",
     "file-loader": "^0.8.1",
     "gh-pages": "^0.2.0",
     "highlight-loader": "^0.2.0",

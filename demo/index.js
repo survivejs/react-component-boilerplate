@@ -7,8 +7,12 @@ require('react-ghfork/gh-fork-ribbon.css');
 require('./main.css');
 require('../style.css');
 
-var React = require('react'),
-    App = require('./app.jsx');
+var React = require('react');
+var App = require('./app.jsx');
 
 
-React.render(<App />, document.body);
+main();
+
+function main() {
+    React.render(<App />, document.body);
+}
