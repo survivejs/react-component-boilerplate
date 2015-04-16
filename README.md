@@ -11,6 +11,7 @@ This is a simple boilerplate that has been developed to make it easier to develo
 * Testing - **npm test** - This will lint too.
 * Developing - **npm start** - This will run a server at *localhost:3000* and use Hot Module Reloading.
 * Demo deployment - **npm run gh-pages** and **npm run deploy-gh-pages** - Demo will contain *README.md* by default and comes with simple styling based on Pure.
+* Generating a distribution version - **npm run dist** - This will generate `/dist` (UMD bundle + minified UMD bundle) and `/dist-modules`. Latter contains a version of `/lib` that has been run through babel. It is meant for NPM users.
 
 ```js
 var a = 5;
