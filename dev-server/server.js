@@ -9,10 +9,10 @@ new WebpackDevServer(webpack(config), {
     contentBase: __dirname,
     publicPath: config.output.publicPath,
     hot: true
-}).listen(3000, '0.0.0.0', function (err) {
+}).listen(config.port, '0.0.0.0', function (err) {
     if(err) {
         return console.log(err);
     }
 
-    console.log('Listening at 0.0.0.0:3000');
+    console.log('Listening at 0.0.0.0:' + config.port);
 });

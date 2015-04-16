@@ -59,6 +59,7 @@ var mergeDemo = merge.bind(null, {
 });
 
 exports.dev = mergeDemo({
+    port: 3000,
     devtool: 'eval',
     entry: [
         'webpack-dev-server/client?http://0.0.0.0:3000',
