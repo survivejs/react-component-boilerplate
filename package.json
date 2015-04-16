@@ -10,7 +10,8 @@
     "gh-pages": "webpack --config ./config/webpack.gh-pages.js",
     "deploy-gh-pages": "node ./config/deploy-gh-pages.js",
     "dist": "webpack --config ./config/webpack.dist.js && webpack --config ./config/webpack.dist.min.js && babel ./lib --out-dir dist-modules",
-    "lint": "eslint . --ext .js --ext .jsx"
+    "lint": "eslint . --ext .js --ext .jsx",
+    "replace-meta": "node scripts/replace_meta.js"
   },
   "main": "dist-modules/index.js",
   "dependencies": {},
@@ -31,11 +32,13 @@
     "json-loader": "^0.5.1",
     "lodash": "^3.6.0",
     "markdown-loader": "^0.1.2",
+    "prompt": "^0.2.14",
     "purecss": "^0.6.0",
     "react": "^0.13.1",
     "react-ghfork": "^0.3.0",
     "react-hot-loader": "^1.2.5",
     "react-tools": "^0.13.1",
+    "replace": "^0.3.0",
     "style-loader": "^0.10.2",
     "url-loader": "^0.5.5",
     "webpack": "^1.8.4",
