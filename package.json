@@ -28,6 +28,7 @@
     "jest-cli": "^0.4.0",
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.13.1",
+    "lodash": "^3.6.0",
     "markdown-loader": "^0.1.2",
     "purecss": "^0.6.0",
     "react": "^0.13.1",
@@ -37,8 +38,7 @@
     "style-loader": "^0.10.2",
     "url-loader": "^0.5.5",
     "webpack": "^1.8.4",
-    "webpack-dev-server": "^1.8.0",
-    "xtend": "^4.0.0"
+    "webpack-dev-server": "^1.8.0"
   },
   "repository": {
     "type": "git",
