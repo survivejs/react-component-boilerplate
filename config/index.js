@@ -21,7 +21,7 @@ var config = {
     demoDirectory: DEMO_DIR,
 };
 
-var common = {
+var mergeDemo = merge.bind(null, {
     exports: {
         entry: [
             config.paths.demoIndex,
@@ -54,11 +54,9 @@ var common = {
             },
         ]
     }
-};
+});
 
-var mergeConfig = merge.bind(null, common);
-
-exports.dev = mergeConfig({
+exports.dev = mergeDemo({
     devtool: 'eval',
     entry: [
         'webpack-dev-server/client?http://0.0.0.0:3000',
@@ -90,7 +88,7 @@ exports.dev = mergeConfig({
     }
 });
 
-exports.ghpages = mergeConfig({
+exports.ghpages = mergeDemo({
     entry: [
         config.paths.demoIndex,
     ],
@@ -126,7 +124,7 @@ exports.ghpages = mergeConfig({
     }
 });
 
-var mergeDist = merge.bind(null, mergeConfig({
+var mergeDist = merge.bind(null, {
     output: {
         path: config.paths.dist,
         libraryTarget: 'umd',
@@ -146,7 +144,7 @@ var mergeDist = merge.bind(null, mergeConfig({
             }
         ]
     }
-}));
+});
 
 exports.dist = mergeDist({
     output: {
