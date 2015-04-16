@@ -5,7 +5,7 @@
   "user": "bebraw",
   "version": "0.0.0",
   "scripts": {
-    "start": "node server.js",
+    "start": "node dev-server/server.js",
     "test": "jest && npm run lint",
     "gh-pages": "webpack --config ./config/webpack.gh-pages.js",
     "deploy-gh-pages": "node ./config/deploy-gh-pages.js",
