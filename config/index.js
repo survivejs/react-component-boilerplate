@@ -81,6 +81,13 @@ exports.dev = mergeDemo({
         new webpack.NoErrorsPlugin(),
     ],
     module: {
+        preLoaders: [
+          {
+            test: /\.jsx?$/,
+            loader: 'eslint',
+            include: [config.paths.demo, config.paths.lib],
+          }
+        ],
         loaders: [
             {
                 test: /\.jsx?$/,
