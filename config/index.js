@@ -135,6 +135,7 @@ exports.ghpages = mergeDemo({
 });
 
 var mergeDist = merge.bind(null, {
+    devtool: 'source-map',
     output: {
         path: config.paths.dist,
         libraryTarget: 'umd',
