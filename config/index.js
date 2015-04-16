@@ -8,15 +8,17 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var pkg = require('../package.json');
 
 var ROOT_PATH = path.resolve(__dirname, '..');
+var DEMO_DIR = 'demo';
 var config = {
     paths: {
         dist: path.join(ROOT_PATH, 'dist'),
         lib: path.join(ROOT_PATH, 'lib'),
-        demoIndex: path.join(ROOT_PATH, 'demo/index'),
+        demo: path.join(ROOT_PATH, DEMO_DIR),
+        demoIndex: path.join(ROOT_PATH, DEMO_DIR, '/index'),
     },
     filename: 'boilerplate',
     library: 'Boilerplate',
-    demoDirectory: 'demo',
+    demoDirectory: DEMO_DIR,
 };
 
 var common = {
@@ -82,6 +84,7 @@ exports.dev = mergeConfig({
             {
                 test: /\.jsx?$/,
                 loaders: ['react-hot', 'jsx?harmony'],
+                include: [config.paths.demo, config.paths.lib],
             },
         ]
     }
@@ -117,6 +120,7 @@ exports.ghpages = mergeConfig({
             {
                 test: /\.jsx?$/,
                 loaders: ['jsx?harmony'],
+                include: [config.paths.demo, config.paths.lib],
             }
         ]
     }
@@ -138,7 +142,7 @@ var mergeDist = merge.bind(null, mergeConfig({
             {
                 test: /\.jsx?$/,
                 loaders: ['jsx?harmony'],
-                exclude: /node_modules/,
+                include: config.paths.lib,
             }
         ]
     }
