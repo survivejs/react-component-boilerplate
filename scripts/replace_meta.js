@@ -40,25 +40,27 @@ function main() {
         ];
 
         if(originals.user !== result.user) {
+            console.log('replacing users/organizations');
+
             replace({
                 regex: originals.user,
                 replacement: result.user,
                 paths: replacementPaths,
                 recursive: true,
                 silent: false,
-                quiet: false,
                 count: true,
             });
         }
 
         if(originals.project !== result.project) {
+            console.log('replacing projects');
+
             replace({
                 regex: originals.project,
                 replacement: result.project,
                 paths: replacementPaths,
                 recursive: true,
                 silent: false,
-                quiet: false,
                 count: true,
             });
         }
