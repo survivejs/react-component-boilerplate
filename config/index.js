@@ -43,10 +43,12 @@ var mergeDemo = merge.bind(null, {
             {
                 test: /\.png$/,
                 loader: 'url?limit=100000&mimetype=image/png',
+                include: config.paths.demo,
             },
             {
                 test: /\.jpg$/,
                 loader: 'file',
+                include: config.paths.demo,
             },
             {
                 test: /\.json$/,
