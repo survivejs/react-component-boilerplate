@@ -12,6 +12,7 @@ var config = {
     paths: {
         dist: path.join(ROOT_PATH, 'dist'),
         lib: path.join(ROOT_PATH, 'lib'),
+        demoIndex: path.join(ROOT_PATH, 'demo/index'),
     },
     filename: 'boilerplate',
     library: 'Boilerplate',
@@ -21,7 +22,7 @@ var config = {
 var common = {
     exports: {
         entry: [
-            './' + config.demoDirectory + '/index'
+            config.paths.demoIndex,
         ],
         resolve: {
             extensions: ['', '.js', '.jsx', '.md', '.css', '.png', '.jpg'],
@@ -60,7 +61,7 @@ exports.dev = mergeConfig({
     entry: [
         'webpack-dev-server/client?http://0.0.0.0:3000',
         'webpack/hot/only-dev-server',
-        './' + config.demoDirectory + '/index',
+        config.paths.demoIndex,
     ],
     output: {
         path: __dirname,
@@ -88,7 +89,7 @@ exports.dev = mergeConfig({
 
 exports.ghpages = mergeConfig({
     entry: [
-        './' + config.demoDirectory + '/index'
+        config.paths.demoIndex,
     ],
     output: {
         path: './gh-pages',
