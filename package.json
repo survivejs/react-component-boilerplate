@@ -1,7 +1,7 @@
 {
   "name": "react-component-boilerplate",
   "description": "Boilerplate for React.js components",
-  "author": "Juho Vepsalainen <bebraw@gmail.com>",
+  "author": "Juho Vepsalainen",
   "user": "bebraw",
   "version": "0.0.0",
   "scripts": {
