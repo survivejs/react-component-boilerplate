@@ -34,15 +34,15 @@ var commonLoaders = [
     },
     {
         test: /\.png$/,
-        loader: 'url-loader?limit=100000&mimetype=image/png',
+        loader: 'url?limit=100000&mimetype=image/png',
     },
     {
         test: /\.jpg$/,
-        loader: 'file-loader',
+        loader: 'file',
     },
     {
         test: /\.json$/,
-        loader: 'json-loader',
+        loader: 'json',
     },
 ];
 
@@ -70,7 +70,7 @@ exports.dev = extend(common, {
     module: {
         loaders: commonLoaders.concat([{
             test: /\.jsx?$/,
-            loaders: ['react-hot', 'jsx-loader?harmony'],
+            loaders: ['react-hot', 'jsx?harmony'],
         }])
     }
 });
@@ -103,7 +103,7 @@ exports.ghpages = extend(common, {
     module: {
         loaders: commonLoaders.concat([{
             test: /\.jsx?$/,
-            loaders: ['jsx-loader?harmony'],
+            loaders: ['jsx?harmony'],
         }])
     }
 });
@@ -117,7 +117,7 @@ var commonDist = extend(common, {
     module: {
         loaders: commonLoaders.concat([{
             test: /\.jsx?$/,
-            loaders: ['jsx-loader?harmony'],
+            loaders: ['jsx?harmony'],
             exclude: /node_modules/,
         }])
     }
