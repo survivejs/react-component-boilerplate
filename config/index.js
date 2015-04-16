@@ -81,7 +81,7 @@ exports.dev = mergeDemo({
         loaders: [
             {
                 test: /\.jsx?$/,
-                loaders: ['react-hot', 'jsx?harmony'],
+                loaders: ['react-hot', 'babel'],
                 include: [config.paths.demo, config.paths.lib],
             },
         ]
@@ -117,7 +117,7 @@ exports.ghpages = mergeDemo({
         loaders: [
             {
                 test: /\.jsx?$/,
-                loaders: ['jsx?harmony'],
+                loaders: ['babel'],
                 include: [config.paths.demo, config.paths.lib],
             }
         ]
@@ -139,7 +139,7 @@ var mergeDist = merge.bind(null, {
         loaders: [
             {
                 test: /\.jsx?$/,
-                loaders: ['jsx?harmony'],
+                loaders: ['babel'],
                 include: config.paths.lib,
             }
         ]
