@@ -34,6 +34,7 @@
     "json-loader": "^0.5.1",
     "lodash": "^3.6.0",
     "markdown-loader": "^0.1.2",
+    "pre-commit": "^1.0.6",
     "prompt": "^0.2.14",
     "purecss": "^0.6.0",
     "react": "^0.13.1",
