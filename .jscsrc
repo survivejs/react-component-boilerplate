@@ -1,0 +1,26 @@
+{
+  "esprima": "esprima-fb",
+  "preset": "google",
+
+  "fileExtensions": [".js", ".jsx"],
+
+  "requireCurlyBraces": true,
+  "requireParenthesesAroundIIFE": true,
+
+  "maximumLineLength": 120,
+  "validateLineBreaks": "LF",
+  "validateIndentation": 4,
+
+  "disallowKeywords": ["with"],
+  "disallowSpacesInsideObjectBrackets": null,
+  "disallowImplicitTypeConversion": ["string"],
+
+  "safeContextKeyword": "that",
+
+  "excludeFiles": [
+    "dist/**",
+    "dist-modules/**",
+    "gh-pages/**",
+    "node_modules/**"
+  ]
+}

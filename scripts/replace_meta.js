@@ -4,7 +4,6 @@ var replace = require('replace');
 
 var meta = require('../package.json');
 
-
 main();
 
 function main() {
@@ -35,8 +34,8 @@ function main() {
 
     prompt.start();
 
-    prompt.get(schema, function (err, result) {
-        if(err) {
+    prompt.get(schema, function(err, result) {
+        if (err) {
             return console.error(err);
         }
 
@@ -45,7 +44,7 @@ function main() {
             'package.json',
         ];
 
-        if(originals.author !== result.author) {
+        if (originals.author !== result.author) {
             console.log('replacing author');
 
             replace({
@@ -61,7 +60,7 @@ function main() {
             });
         }
 
-        if(originals.user !== result.user) {
+        if (originals.user !== result.user) {
             console.log('replacing users/organizations');
 
             replace({
@@ -74,7 +73,7 @@ function main() {
             });
         }
 
-        if(originals.project !== result.project) {
+        if (originals.project !== result.project) {
             console.log('replacing projects');
 
             replace({

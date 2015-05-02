@@ -6,7 +6,6 @@ var Fork = require('react-ghfork');
 var readme = require('../README.md');
 var pkgInfo = require('../package.json');
 
-
 module.exports = React.createClass({
     displayName: 'App',
 

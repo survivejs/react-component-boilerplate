@@ -82,11 +82,11 @@ exports.dev = mergeDemo({
     ],
     module: {
         preLoaders: [
-          {
-            test: /\.jsx?$/,
-            loader: 'eslint',
-            include: [config.paths.demo, config.paths.lib],
-          }
+            {
+                test: /\.jsx?$/,
+                loaders: ['eslint', 'jscs'],
+                include: [config.paths.demo, config.paths.lib],
+            }
         ],
         loaders: [
             {

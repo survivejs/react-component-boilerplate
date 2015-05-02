@@ -10,7 +10,6 @@ require('../style.css');
 var React = require('react');
 var App = require('./app.jsx');
 
-
 main();
 
 function main() {

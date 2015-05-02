@@ -4,7 +4,6 @@ var ghpages = require('gh-pages');
 
 var config = require('./webpack.gh-pages');
 
-
 main();
 
 function main() {
