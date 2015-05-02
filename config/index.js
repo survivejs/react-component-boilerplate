@@ -23,9 +23,6 @@ var config = {
 };
 
 var mergeDemo = merge.bind(null, {
-    entry: [
-        config.paths.demoIndex,
-    ],
     resolve: {
         extensions: ['', '.js', '.jsx', '.md', '.css', '.png', '.jpg'],
     },
