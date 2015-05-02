@@ -2,7 +2,7 @@
   "name": "react-component-boilerplate",
   "description": "Boilerplate for React.js components",
   "author": "Juho Vepsalainen",
-  "user": "bebraw",
+  "user": "survivejs",
   "version": "0.0.0",
   "scripts": {
     "start": "TARGET=dev node dev-server/server.js",
@@ -57,11 +57,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bebraw/react-component-boilerplate.git"
+    "url": "https://github.com/survivejs/react-component-boilerplate.git"
   },
-  "homepage": "https://bebraw.github.io/react-component-boilerplate/",
+  "homepage": "https://survivejs.github.io/react-component-boilerplate/",
   "bugs": {
-    "url": "https://github.com/bebraw/react-component-boilerplate/issues"
+    "url": "https://github.com/survivejs/react-component-boilerplate/issues"
   },
   "keywords": [
     "react",
@@ -71,7 +71,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/bebraw/react-component-boilerplate/blob/master/LICENSE"
+      "url": "https://github.com/survivejs/react-component-boilerplate/blob/master/LICENSE"
     }
   ],
   "jest": {

@@ -1,4 +1,4 @@
-[![build status](https://secure.travis-ci.org/bebraw/react-component-boilerplate.png)](http://travis-ci.org/bebraw/react-component-boilerplate)
+[![build status](https://secure.travis-ci.org/survivejs/react-component-boilerplate.png)](http://travis-ci.org/survivejs/react-component-boilerplate)
 # react-component-boilerplate - Boilerplate for React.js components
 
 This is a simple boilerplate that has been developed to make it easier to develop React components. Check out [SurviveJS - Webpack and React](https://github.com/survivejs/webpack_react) to dig deeper into the topic.
