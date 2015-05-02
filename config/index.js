@@ -35,7 +35,7 @@ var mergeDemo = merge.bind(null, {
             },
             {
                 test: /\.md$/,
-                loader: 'html!highlight!markdown',
+                loaders: ['html', 'highlight', 'markdown'],
             },
             {
                 test: /\.png$/,
