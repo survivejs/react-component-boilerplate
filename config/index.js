@@ -7,6 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var pkg = require('../package.json');
 
+var TARGET = process.env.TARGET;
 var ROOT_PATH = path.resolve(__dirname, '..');
 var DEMO_DIR = 'demo';
 var config = {
@@ -58,81 +59,85 @@ var mergeDemo = merge.bind(null, {
     }
 });
 
-exports.dev = mergeDemo({
-    port: 3000,
-    devtool: 'eval',
-    entry: [
-        'webpack-dev-server/client?http://0.0.0.0:3000',
-        'webpack/hot/only-dev-server',
-        config.paths.demoIndex,
-    ],
-    output: {
-        path: __dirname,
-        filename: 'bundle.js',
-        publicPath: '/' + config.demoDirectory + '/'
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('development'),
-            }
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-    ],
-    module: {
-        preLoaders: [
-            {
-                test: /\.jsx?$/,
-                loaders: ['eslint', 'jscs'],
-                include: [config.paths.demo, config.paths.lib],
-            }
+if (TARGET === 'dev') {
+    module.exports = mergeDemo({
+        port: 3000,
+        devtool: 'eval',
+        entry: [
+            'webpack-dev-server/client?http://0.0.0.0:3000',
+            'webpack/hot/only-dev-server',
+            config.paths.demoIndex,
         ],
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                loaders: ['react-hot', 'babel'],
-                include: [config.paths.demo, config.paths.lib],
-            },
-        ]
-    }
-});
+        output: {
+            path: __dirname,
+            filename: 'bundle.js',
+            publicPath: '/' + config.demoDirectory + '/'
+        },
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    'NODE_ENV': JSON.stringify('development'),
+                }
+            }),
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NoErrorsPlugin(),
+        ],
+        module: {
+            preLoaders: [
+                {
+                    test: /\.jsx?$/,
+                    loaders: ['eslint', 'jscs'],
+                    include: [config.paths.demo, config.paths.lib],
+                }
+            ],
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    loaders: ['react-hot', 'babel'],
+                    include: [config.paths.demo, config.paths.lib],
+                },
+            ]
+        }
+    });
+}
 
-exports.ghpages = mergeDemo({
-    entry: [
-        config.paths.demoIndex,
-    ],
-    output: {
-        path: './gh-pages',
-        filename: 'bundle.js',
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                // This has effect on the react lib size
-                'NODE_ENV': JSON.stringify('production'),
-            }
-        }),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-        }),
-        new HtmlWebpackPlugin({
-            title: pkg.name + ' - ' + pkg.description
-        }),
-    ],
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                loaders: ['babel'],
-                include: [config.paths.demo, config.paths.lib],
-            }
-        ]
-    }
-});
+if (TARGET === 'gh-pages') {
+    module.exports = mergeDemo({
+        entry: [
+            config.paths.demoIndex,
+        ],
+        output: {
+            path: './gh-pages',
+            filename: 'bundle.js',
+        },
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    // This has effect on the react lib size
+                    'NODE_ENV': JSON.stringify('production'),
+                }
+            }),
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                },
+            }),
+            new HtmlWebpackPlugin({
+                title: pkg.name + ' - ' + pkg.description
+            }),
+        ],
+        module: {
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    loaders: ['babel'],
+                    include: [config.paths.demo, config.paths.lib],
+                }
+            ]
+        }
+    });
+}
 
 var mergeDist = merge.bind(null, {
     devtool: 'source-map',
@@ -157,21 +162,25 @@ var mergeDist = merge.bind(null, {
     }
 });
 
-exports.dist = mergeDist({
-    output: {
-        filename: config.filename + '.js',
-    },
-});
+if (TARGET === 'dist') {
+    module.exports = mergeDist({
+        output: {
+            filename: config.filename + '.js',
+        },
+    });
+}
 
-exports.distMin = mergeDist({
-    output: {
-        filename: config.filename + '.min.js',
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-        }),
-    ],
-});
+if (TARGET === 'dist-min') {
+    module.exports = mergeDist({
+        output: {
+            filename: config.filename + '.min.js',
+        },
+        plugins: [
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                },
+            }),
+        ],
+    });
+}
