@@ -8,7 +8,7 @@
     "start": "TARGET=dev node dev-server/server.js",
     "test": "jest && npm run check-style && npm run lint",
     "gh-pages": "TARGET=gh-pages webpack --config ./config",
-    "deploy-gh-pages": "node ./config/deploy-gh-pages.js",
+    "deploy-gh-pages": "TARGET=gh-pages node ./config/deploy-gh-pages.js",
     "dist": "TARGET=dist webpack --config ./config && TARGET=dist-min webpack --config ./config",
     "lint": "eslint . --ext .js --ext .jsx",
     "check-style": "jscs .",

@@ -2,7 +2,7 @@
 
 var ghpages = require('gh-pages');
 
-var config = require('./webpack.gh-pages');
+var config = require('./');
 
 main();
 
