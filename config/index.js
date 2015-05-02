@@ -2,8 +2,9 @@
 var path = require('path');
 
 var webpack = require('webpack');
-var merge = require('./merge');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+var merge = require('./merge');
 
 var pkg = require('../package.json');
 
