@@ -8,7 +8,8 @@ var ip = '0.0.0.0';
 new WebpackDevServer(webpack(config), {
     contentBase: __dirname,
     publicPath: config.output.publicPath,
-    hot: true
+    hot: true,
+    historyApiFallback: true,
 }).listen(config.port, ip, function(err) {
     if (err) {
         return console.log(err);
