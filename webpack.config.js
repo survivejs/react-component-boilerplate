@@ -99,12 +99,14 @@ if (TARGET === 'dev') {
 
 if (TARGET === 'gh-pages') {
     module.exports = mergeDemo({
-        entry: [
-            config.paths.demoIndex,
-        ],
+        entry: {
+            app: config.paths.demoIndex,
+            // tweak this to include your externs unless you load them some other way
+            vendors: ['react/addons'],
+        },
         output: {
             path: './gh-pages',
-            filename: 'bundle.js',
+            filename: 'bundle.[chunkhash].js',
         },
         plugins: [
             new webpack.DefinePlugin({
@@ -119,6 +121,7 @@ if (TARGET === 'gh-pages') {
                     warnings: false
                 },
             }),
+            new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js'),
             new HtmlWebpackPlugin({
                 title: pkg.name + ' - ' + pkg.description
             }),
@@ -144,7 +147,8 @@ var mergeDist = merge.bind(null, {
     },
     entry: config.paths.src,
     externals: {
-        react: 'react',
+        //// if you are not testing, just react will do
+        //react: 'react',
         'react/addons': 'react/addons'
     },
     module: {
