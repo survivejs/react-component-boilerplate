@@ -3,7 +3,7 @@
 
 This is a simple boilerplate that has been developed to make it easier to develop React components. Check out [SurviveJS - Webpack and React](https://github.com/survivejs/webpack_react) to dig deeper into the topic.
 
-> IMPORTANT! If you use Jest for testing and rely on **react/addons**, you should depend on that at */lib*. Otherwise you might end up getting mysterious failures when running tests at Travis. If this isn't done, test and library code end up using different instances of React and you will get failures!
+> IMPORTANT! If you use Jest for testing and rely on **react/addons**, you should depend on that at */src*. Otherwise you might end up getting mysterious failures when running tests at Travis. If this isn't done, test and library code end up using different instances of React and you will get failures!
 
 ## Basic Usage
 
@@ -13,7 +13,7 @@ This is a simple boilerplate that has been developed to make it easier to develo
 * Testing - **npm test** - This will lint too.
 * Developing - **npm start** - This will run a server at *localhost:3000* and use Hot Module Reloading.
 * Demo deployment - **npm run gh-pages** and **npm run deploy-gh-pages** - Demo will contain *README.md* by default and comes with simple styling based on Pure.
-* Generating a distribution version - **npm run dist** - This will generate `/dist` (UMD bundle + minified UMD bundle) and `/dist-modules`. Latter contains a version of `/lib` that has been run through babel. It is meant for NPM users.
+* Generating a distribution version - **npm run dist** - This will generate `/dist` (UMD bundle + minified UMD bundle) and `/dist-modules`. Latter contains a version of `/src` that has been run through babel. It is meant for NPM users.
 * Bumping version - **npm run version [version number]** - This runs tests, generates a distribution version included in the version commit, executes `npm version` and pushes a new version of demo to gh-pages.
 
 ```js

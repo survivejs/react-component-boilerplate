@@ -14,7 +14,7 @@ var DEMO_DIR = 'demo';
 var config = {
     paths: {
         dist: path.join(ROOT_PATH, 'dist'),
-        lib: path.join(ROOT_PATH, 'lib'),
+        src: path.join(ROOT_PATH, 'src'),
         demo: path.join(ROOT_PATH, DEMO_DIR),
         demoIndex: path.join(ROOT_PATH, DEMO_DIR, '/index'),
     },
@@ -83,14 +83,14 @@ if (TARGET === 'dev') {
                 {
                     test: /\.jsx?$/,
                     loaders: ['eslint', 'jscs'],
-                    include: [config.paths.demo, config.paths.lib],
+                    include: [config.paths.demo, config.paths.src],
                 }
             ],
             loaders: [
                 {
                     test: /\.jsx?$/,
                     loaders: ['react-hot', 'babel'],
-                    include: [config.paths.demo, config.paths.lib],
+                    include: [config.paths.demo, config.paths.src],
                 },
             ]
         }
@@ -128,7 +128,7 @@ if (TARGET === 'gh-pages') {
                 {
                     test: /\.jsx?$/,
                     loaders: ['babel'],
-                    include: [config.paths.demo, config.paths.lib],
+                    include: [config.paths.demo, config.paths.src],
                 }
             ]
         }
@@ -142,7 +142,7 @@ var mergeDist = merge.bind(null, {
         libraryTarget: 'umd',
         library: config.library,
     },
-    entry: config.paths.lib,
+    entry: config.paths.src,
     externals: {
         react: 'react',
         'react/addons': 'react/addons'
@@ -152,7 +152,7 @@ var mergeDist = merge.bind(null, {
             {
                 test: /\.jsx?$/,
                 loaders: ['babel'],
-                include: config.paths.lib,
+                include: config.paths.src,
             }
         ]
     }
