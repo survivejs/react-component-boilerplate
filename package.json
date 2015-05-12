@@ -12,7 +12,7 @@
     "dist": "TARGET=dist webpack && TARGET=dist-min webpack",
     "lint": "eslint . --ext .js --ext .jsx",
     "check-style": "jscs .",
-    "replace-meta": "node scripts/replace_meta.js",
+    "replace-meta": "node lib/replace_meta.js",
     "prepublish": "babel ./lib --out-dir ./dist-modules",
     "version": "npm run test && npm run dist && npm version \"$@\" && npm run gh-pages && npm run deploy-gh-pages"
   },
