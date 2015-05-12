@@ -4,12 +4,12 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var merge = require('./merge');
+var merge = require('./lib/merge');
 
-var pkg = require('../package.json');
+var pkg = require('./package.json');
 
 var TARGET = process.env.TARGET;
-var ROOT_PATH = path.resolve(__dirname, '..');
+var ROOT_PATH = path.resolve(__dirname);
 var DEMO_DIR = 'demo';
 var config = {
     paths: {

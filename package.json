@@ -7,9 +7,9 @@
   "scripts": {
     "start": "TARGET=dev node dev-server/server.js",
     "test": "jest && npm run check-style && npm run lint",
-    "gh-pages": "TARGET=gh-pages webpack --config ./config",
-    "deploy-gh-pages": "TARGET=gh-pages node ./config/deploy-gh-pages.js",
-    "dist": "TARGET=dist webpack --config ./config && TARGET=dist-min webpack --config ./config",
+    "gh-pages": "TARGET=gh-pages webpack",
+    "deploy-gh-pages": "TARGET=gh-pages node ./lib/deploy-gh-pages.js",
+    "dist": "TARGET=dist webpack && TARGET=dist-min webpack",
     "lint": "eslint . --ext .js --ext .jsx",
     "check-style": "jscs .",
     "replace-meta": "node scripts/replace_meta.js",
@@ -77,7 +77,7 @@
     }
   ],
   "jest": {
-    "scriptPreprocessor": "./config/preprocessor.js",
+    "scriptPreprocessor": "./lib/preprocessor.js",
     "unmockedModulePathPatterns": [
       "./node_modules/react"
     ]
