@@ -56,11 +56,14 @@ var mergeDemo = merge.bind(null, {
 });
 
 if (TARGET === 'dev') {
+    var IP = '0.0.0.0';
+    var PORT = 3000;
     module.exports = mergeDemo({
-        port: 3000,
+        ip: IP,
+        port: PORT,
         devtool: 'eval',
         entry: [
-            'webpack-dev-server/client?http://0.0.0.0:3000',
+            'webpack-dev-server/client?http://' + IP + ':' + PORT,
             'webpack/hot/only-dev-server',
             config.paths.demoIndex,
         ],
