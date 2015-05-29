@@ -14,7 +14,8 @@
     "check-style": "jscs .",
     "replace-meta": "node lib/replace_meta.js",
     "prepublish": "babel ./lib --out-dir ./dist-modules",
-    "version": "npm run test && npm run dist && npm version \"$@\" && npm run gh-pages && npm run deploy-gh-pages"
+    "preversion": "npm run test && npm run dist",
+    "postversion": "npm run gh-pages && npm run deploy-gh-pages"
   },
   "main": "dist-modules/index.js",
   "dependencies": {},

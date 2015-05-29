@@ -14,7 +14,8 @@ This is a simple boilerplate that has been developed to make it easier to develo
 * Developing - **npm start** - This will run a server at *localhost:3000* and use Hot Module Reloading.
 * Demo deployment - **npm run gh-pages** and **npm run deploy-gh-pages** - Demo will contain *README.md* by default and comes with simple styling based on Pure.
 * Generating a distribution version - **npm run dist** - This will generate `/dist` (UMD bundle + minified UMD bundle) and `/dist-modules`. Latter contains a version of `/src` that has been run through babel. It is meant for NPM users.
-* Bumping version - **npm run version -- [version number]** - This runs tests, generates a distribution version included in the version commit, executes `npm version` and pushes a new version of demo to gh-pages.
+
+Note that there are hooks for `npm version`. The system will run tests, generate a distribution bundle and include that into the version commit. After that has completed it will generate GitHub Pages and deploy a new version.
 
 ```js
 var a = 5;
