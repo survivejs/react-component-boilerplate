@@ -3,7 +3,7 @@
   "description": "Boilerplate for React.js components",
   "author": "Juho Vepsalainen",
   "user": "survivejs",
-  "version": "0.0.0",
+  "version": "0.6.0",
   "scripts": {
     "start": "TARGET=dev node dev-server/server.js",
     "test": "jest && npm run check-style && npm run lint",
