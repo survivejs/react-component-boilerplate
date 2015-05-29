@@ -9,6 +9,9 @@ new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot: true,
     historyApiFallback: true,
+    stats: {
+        colors: true
+    },
 }).listen(config.port, config.ip, function(err) {
     if (err) {
         return console.log(err);

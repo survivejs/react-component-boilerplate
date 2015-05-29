@@ -7,9 +7,9 @@
   "scripts": {
     "start": "TARGET=dev node dev-server/server.js",
     "test": "jest && npm run check-style && npm run lint",
-    "gh-pages": "TARGET=gh-pages webpack",
+    "gh-pages": "TARGET=gh-pages webpack --colors",
     "deploy-gh-pages": "TARGET=gh-pages node ./lib/deploy-gh-pages.js",
-    "dist": "TARGET=dist webpack && TARGET=dist-min webpack",
+    "dist": "TARGET=dist webpack && TARGET=dist-min webpack --colors",
     "lint": "eslint . --ext .js --ext .jsx",
     "check-style": "jscs .",
     "replace-meta": "node lib/replace_meta.js",
