@@ -20,7 +20,6 @@ var config = {
     },
     filename: 'boilerplate',
     library: 'Boilerplate',
-    demoDirectory: DEMO_DIR,
 };
 
 var mergeDemo = merge.bind(null, {
@@ -70,7 +69,7 @@ if (TARGET === 'dev') {
         output: {
             path: __dirname,
             filename: 'bundle.js',
-            publicPath: '/' + config.demoDirectory + '/'
+            publicPath: '/'
         },
         plugins: [
             new webpack.DefinePlugin({
@@ -80,6 +79,7 @@ if (TARGET === 'dev') {
             }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.NoErrorsPlugin(),
+            new HtmlWebpackPlugin(),
         ],
         module: {
             preLoaders: [
