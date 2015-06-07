@@ -5,7 +5,7 @@
   "user": "survivejs",
   "version": "0.6.0",
   "scripts": {
-    "start": "TARGET=dev node dev-server/server.js",
+    "start": "TARGET=dev node lib/dev_server.js",
     "test": "jest && npm run check-style && npm run lint",
     "gh-pages": "TARGET=gh-pages webpack --colors",
     "deploy-gh-pages": "TARGET=gh-pages node ./lib/deploy-gh-pages.js",
