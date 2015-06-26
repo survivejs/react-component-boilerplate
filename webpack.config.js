@@ -3,8 +3,7 @@ var path = require('path');
 
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-var merge = require('./lib/merge');
+var merge = require('webpack-merge');
 
 var pkg = require('./package.json');
 
