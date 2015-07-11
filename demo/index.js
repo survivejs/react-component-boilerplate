@@ -13,8 +13,8 @@ var App = require('./app.jsx');
 main();
 
 function main() {
-    var app = document.createElement('div');
-    document.body.appendChild(app);
+  var app = document.createElement('div');
+  document.body.appendChild(app);
 
-    React.render(<App />, app);
+  React.render(<App />, app);
 }

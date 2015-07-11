@@ -4,8 +4,8 @@
 //var TestUtils = React.addons.TestUtils;
 
 describe('Boilerplate', function() {
-    it('should do boilerplate things', function() {
-        // TODO: test something now
-        expect(true).toEqual(true);
-    });
+  it('should do boilerplate things', function() {
+    // TODO: test something now
+    expect(true).toEqual(true);
+  });
 });
