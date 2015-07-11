@@ -1,6 +1,6 @@
 'use strict';
 
-require('purecss/build/pure.css');
+require('purecss');
 require('highlight.js/styles/github.css');
 require('react-ghfork/gh-fork-ribbon.ie.css');
 require('react-ghfork/gh-fork-ribbon.css');
