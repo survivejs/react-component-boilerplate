@@ -67,8 +67,7 @@ if (TARGET === 'dev') {
     ],
     output: {
       path: __dirname,
-      filename: 'bundle.js',
-      publicPath: '/'
+      filename: 'bundle.js'
     },
     plugins: [
     new webpack.DefinePlugin({
