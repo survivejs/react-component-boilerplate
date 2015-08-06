@@ -83,7 +83,7 @@ if (TARGET === 'dev') {
       preLoaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['eslint', 'jscs'],
+          loaders: ['eslint'],
           include: [config.paths.demo, config.paths.src],
         }
       ],

@@ -6,13 +6,12 @@
   "version": "0.6.0",
   "scripts": {
     "start": "TARGET=dev node lib/dev_server.js",
-    "test": "jest && npm run check-style && npm run lint",
+    "test": "jest && npm run lint",
     "gh-pages": "TARGET=gh-pages webpack --colors",
     "deploy-gh-pages": "TARGET=gh-pages node ./lib/deploy_gh_pages.js",
     "dist": "TARGET=dist webpack --colors && TARGET=dist-min webpack --colors",
     "dist-modules": "babel ./src --out-dir ./dist-modules",
     "lint": "eslint . --ext .js --ext .jsx",
-    "check-style": "jscs .",
     "replace-meta": "node lib/replace_meta.js",
     "preversion": "npm run test && npm run dist && npm run dist-modules && git commit -am \"Update dist\"",
     "postpublish": "npm run gh-pages && npm run deploy-gh-pages"
@@ -36,8 +35,6 @@
     "html-loader": "^0.3.0",
     "html-webpack-plugin": "^1.4.0",
     "jest-cli": "^0.4.5",
-    "jscs": "^1.13.1",
-    "jscs-loader": "^0.1.0",
     "json-loader": "^0.5.2",
     "lodash": "^3.9.3",
     "markdown-loader": "^0.1.2",
