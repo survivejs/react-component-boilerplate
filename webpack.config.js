@@ -7,7 +7,7 @@ var merge = require('webpack-merge');
 
 var pkg = require('./package.json');
 
-var TARGET = process.env.TARGET;
+var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
 var DEMO_DIR = 'demo';
 var config = {
@@ -53,7 +53,7 @@ var mergeDemo = merge.bind(null, {
   }
 });
 
-if (TARGET === 'dev') {
+if (TARGET === 'start') {
   var IP = '0.0.0.0';
   var PORT = 3000;
   module.exports = mergeDemo({
@@ -98,7 +98,7 @@ if (TARGET === 'dev') {
   });
 }
 
-if (TARGET === 'gh-pages') {
+if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
   module.exports = mergeDemo({
     entry: {
       app: config.paths.demoIndex,
