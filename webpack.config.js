@@ -61,9 +61,9 @@ if (TARGET === 'dev') {
     port: PORT,
     devtool: 'eval',
     entry: [
-    'webpack-dev-server/client?http://' + IP + ':' + PORT,
-    'webpack/hot/only-dev-server',
-    config.paths.demoIndex,
+      'webpack-dev-server/client?http://' + IP + ':' + PORT,
+      'webpack/hot/only-dev-server',
+      config.paths.demoIndex,
     ],
     output: {
       path: __dirname,
