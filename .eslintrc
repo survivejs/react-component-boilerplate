@@ -16,10 +16,10 @@
     "globalReturn": false
   },
   "rules": {
-    "no-underscore-dangle": false,
-    "no-use-before-define": false,
-    "quotes": [4, "single"],
-    "comma-dangle": "always",
+    "no-underscore-dangle": 0,
+    "no-use-before-define": 0,
+    "quotes": [2, "single"],
+    "comma-dangle": 0,
     "react/jsx-boolean-value": 1,
     "react/jsx-quotes": 1,
     "react/jsx-no-undef": 1,
