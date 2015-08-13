@@ -3,6 +3,7 @@ var path = require('path');
 
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var Clean = require('clean-webpack-plugin');
 var merge = require('webpack-merge');
 
 var pkg = require('./package.json');
@@ -110,22 +111,23 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
       filename: 'bundle.[chunkhash].js',
     },
     plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        // This has effect on the react lib size
-        'NODE_ENV': JSON.stringify('production'),
-      }
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-    }),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js'),
-    new HtmlWebpackPlugin({
-      title: pkg.name + ' - ' + pkg.description
-    }),
+      new Clean(['gh-pages']),
+      new webpack.DefinePlugin({
+        'process.env': {
+          // This has effect on the react lib size
+          'NODE_ENV': JSON.stringify('production'),
+        }
+      }),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        },
+      }),
+      new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js'),
+      new HtmlWebpackPlugin({
+        title: pkg.name + ' - ' + pkg.description
+      }),
     ],
     module: {
       loaders: [
