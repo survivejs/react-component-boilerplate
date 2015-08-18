@@ -1,14 +1,10 @@
-'use strict';
+import React from 'react';
+import Fork from 'react-ghfork';
 
-var React = require('react');
-var Fork = require('react-ghfork');
+import readme from '../README.md';
+import pkgInfo from '../package.json';
 
-var readme = require('../README.md');
-var pkgInfo = require('../package.json');
-
-module.exports = React.createClass({
-  displayName: 'App',
-
+export default class App extends React.Component {
   render() {
     return (
       <div className='pure-g'>
@@ -36,5 +32,5 @@ module.exports = React.createClass({
         </article>
       </div>
     );
-  },
-});
+  }
+};
