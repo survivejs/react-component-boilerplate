@@ -28,28 +28,28 @@ var mergeDemo = merge.bind(null, {
   },
   module: {
     loaders: [
-    {
-      test: /\.css$/,
-      loaders: ['style', 'css'],
-    },
-    {
-      test: /\.md$/,
-      loaders: ['html', 'highlight', 'markdown'],
-    },
-    {
-      test: /\.png$/,
-      loader: 'url?limit=100000&mimetype=image/png',
-      include: config.paths.demo,
-    },
-    {
-      test: /\.jpg$/,
-      loader: 'file',
-      include: config.paths.demo,
-    },
-    {
-      test: /\.json$/,
-      loader: 'json',
-    },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+      },
+      {
+        test: /\.md$/,
+        loaders: ['html', 'highlight', 'markdown'],
+      },
+      {
+        test: /\.png$/,
+        loader: 'url?limit=100000&mimetype=image/png',
+        include: config.paths.demo,
+      },
+      {
+        test: /\.jpg$/,
+        loader: 'file',
+        include: config.paths.demo,
+      },
+      {
+        test: /\.json$/,
+        loader: 'json',
+      },
     ]
   }
 });
