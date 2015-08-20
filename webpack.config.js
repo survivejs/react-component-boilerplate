@@ -131,11 +131,11 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
     ],
     module: {
       loaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['babel'],
-        include: [config.paths.demo, config.paths.src],
-      }
+        {
+          test: /\.jsx?$/,
+          loaders: ['babel'],
+          include: [config.paths.demo, config.paths.src],
+        }
       ]
     }
   });
@@ -156,11 +156,11 @@ var mergeDist = merge.bind(null, {
   },
   module: {
     loaders: [
-    {
-      test: /\.jsx?$/,
-      loaders: ['babel'],
-      include: config.paths.src,
-    }
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: config.paths.src,
+      }
     ]
   }
 });
