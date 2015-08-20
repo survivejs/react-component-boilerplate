@@ -71,14 +71,14 @@ if (TARGET === 'start') {
       filename: 'bundle.js'
     },
     plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('development'),
-      }
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('development'),
+        }
+      }),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
+      new HtmlWebpackPlugin(),
     ],
     module: {
       preLoaders: [
