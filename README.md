@@ -8,7 +8,6 @@ This is a simple boilerplate that has been developed to make it easier to develo
 ## Basic Usage
 
 * Replacing meta information  - **npm run replace-meta** - This will allow you to update project metadata (GitHub user/project). Note that this can be potentially dangerous since it does just a naive search/replace over *README.md* and *package.json*!
-* Code style checking - **npm run check-style**
 * Linting - **npm run lint**
 * Testing - **npm test** - This will lint too.
 * Developing - **npm start** - This will run a server at *localhost:3000* and use Hot Module Reloading.
