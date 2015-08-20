@@ -60,7 +60,7 @@ if (TARGET === 'start') {
   module.exports = mergeDemo({
     ip: IP,
     port: PORT,
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     entry: [
       'webpack-dev-server/client?http://' + IP + ':' + PORT,
       'webpack/hot/only-dev-server',
