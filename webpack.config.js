@@ -150,9 +150,15 @@ var mergeDist = merge.bind(null, {
   },
   entry: config.paths.src,
   externals: {
-    //// if you are not testing, just react will do
-    //react: 'react',
-    'react/addons': 'react/addons'
+    // if you are not testing,
+    // just 'react' instead of 'react/addons'
+    // will be enough
+    'react/addons': {
+        commonjs: 'react/addons',
+        commonjs2: 'react/addons',
+        amd: 'React',
+        root: 'React'
+    }
   },
   module: {
     loaders: [
