@@ -15,7 +15,7 @@
     "dist-modules": "babel ./src --out-dir ./dist-modules",
     "lint": "eslint . --ext .js --ext .jsx",
     "replace-meta": "node lib/replace_meta.js",
-    "preversion": "npm run test && npm run dist-all && npm run dist-modules && git commit -am \"Update dist\"",
+    "preversion": "npm run test && npm run dist-all && npm run dist-modules && git commit --allow-empty -am \"Update dist\"",
     "postpublish": "npm run gh-pages && npm run deploy-gh-pages"
   },
   "main": "dist-modules/index.js",
