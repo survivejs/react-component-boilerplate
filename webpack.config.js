@@ -77,7 +77,6 @@ if (TARGET === 'start') {
         }
       }),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
       new HtmlWebpackPlugin(),
     ],
     module: {
