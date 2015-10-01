@@ -33,6 +33,7 @@
     "esprima-fb": "^15001.1001.0-dev-harmony-fb",
     "file-loader": "^0.8.4",
     "gh-pages": "^0.3.1",
+    "git-prepush-hook": "^1.0.1",
     "highlight-loader": "^0.4.5",
     "highlight.js": "^8.7.0",
     "html-loader": "^0.3.0",
@@ -42,7 +43,6 @@
     "lodash": "^3.10.1",
     "markdown-loader": "^0.1.6",
     "node-libs-browser": "^0.5.2",
-    "prepush-hook": "^0.1.0",
     "prompt": "^0.2.14",
     "purecss": "^0.6.0",
     "react": "^0.13.3",
@@ -78,5 +78,6 @@
     "unmockedModulePathPatterns": [
       "./node_modules/react"
     ]
-  }
+  },
+  "pre-push": []
 }
