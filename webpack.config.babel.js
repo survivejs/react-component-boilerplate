@@ -1,11 +1,14 @@
 'use strict';
+var fs = require('fs');
 var path = require('path');
 
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
 var merge = require('webpack-merge');
+var React = require('react');
 
+var App = require('./demo/app.jsx');
 var pkg = require('./package.json');
 
 var TARGET = process.env.npm_lifecycle_event;
@@ -125,7 +128,8 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
       }),
       new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js'),
       new HtmlWebpackPlugin({
-        title: pkg.name + ' - ' + pkg.description
+        title: pkg.name + ' - ' + pkg.description,
+        templateContent: renderJSX
       }),
     ],
     module: {
@@ -190,5 +194,24 @@ if (TARGET === 'dist-min') {
       },
     }),
     ],
+  });
+}
+
+function renderJSX(templateParams, compilation) {
+  var tpl = fs.readFileSync(path.join(__dirname, 'lib/index_template.tpl'), 'utf8');
+  var readme = fs.readFileSync(path.join(__dirname, 'README.md'), 'utf8');
+  var replacements = {
+    name: pkg.name,
+    description: pkg.description,
+    demo: React.renderToString(<App />),
+    documentation: React.renderToStaticMarkup(
+      <div key='documentation'>{MTRC(readme).tree}</div>
+    )
+  };
+
+  return tpl.replace(/%(\w*)%/g, function(match) {
+    var key = match.slice(1, -1);
+
+    return replacements[key] ? replacements[key] : match;
   });
 }
