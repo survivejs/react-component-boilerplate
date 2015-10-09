@@ -8,6 +8,7 @@ require('./main.css');
 require('../style.css');
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var App = require('./app.jsx');
 
 main();
@@ -15,5 +16,5 @@ main();
 function main() {
   var app = document.getElementsByClassName('demonstration')[0];
 
-  React.render(<App />, app);
+  ReactDOM.render(<App />, app);
 }
