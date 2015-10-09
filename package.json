@@ -36,7 +36,6 @@
     "eslint": "^1.6.0",
     "eslint-loader": "^1.1.0",
     "eslint-plugin-react": "^3.5.1",
-    "esprima-fb": "^15001.1001.0-dev-harmony-fb",
     "file-loader": "^0.8.4",
     "gh-pages": "^0.4.0",
     "git-prepush-hook": "^1.0.1",
