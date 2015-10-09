@@ -55,21 +55,19 @@ var mergeDemo = merge.bind(null, {
         loader: 'json',
       },
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: pkg.name + ' - ' + pkg.description,
+      templateContent: renderJSX
+    })
+  ]
 });
 
-if (TARGET === 'start') {
-  var IP = '0.0.0.0';
-  var PORT = 3000;
+if (TARGET === 'start' || !TARGET) {
   module.exports = mergeDemo({
-    ip: IP,
-    port: PORT,
     devtool: 'eval-source-map',
-    entry: [
-      'webpack-dev-server/client?http://' + IP + ':' + PORT,
-      'webpack/hot/only-dev-server',
-      config.paths.demoIndex,
-    ],
+    entry: config.paths.demoIndex,
     output: {
       path: __dirname,
       filename: 'bundle.js'
@@ -80,8 +78,7 @@ if (TARGET === 'start') {
           'NODE_ENV': JSON.stringify('development'),
         }
       }),
-      new webpack.HotModuleReplacementPlugin(),
-      new HtmlWebpackPlugin(),
+      new webpack.HotModuleReplacementPlugin()
     ],
     module: {
       preLoaders: [
@@ -98,6 +95,12 @@ if (TARGET === 'start') {
           include: [config.paths.demo, config.paths.src],
         },
       ]
+    },
+    devServer: {
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      progress: true
     }
   });
 }
@@ -127,11 +130,7 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
           warnings: false
         },
       }),
-      new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js'),
-      new HtmlWebpackPlugin({
-        title: pkg.name + ' - ' + pkg.description,
-        templateContent: renderJSX
-      }),
+      new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js')
     ],
     module: {
       loaders: [
