@@ -28,17 +28,13 @@ var config = {
 
 var demoCommon = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.md', '.css', '.png', '.jpg'],
+    extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg'],
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
         loaders: ['style', 'css'],
-      },
-      {
-        test: /\.md$/,
-        loaders: ['html', 'highlight', 'markdown'],
       },
       {
         test: /\.png$/,
