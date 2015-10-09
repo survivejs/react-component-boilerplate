@@ -7,6 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
 var merge = require('webpack-merge');
 var React = require('react');
+var MTRC = require('markdown-to-react-components');
 
 var App = require('./demo/app.jsx');
 var pkg = require('./package.json');
