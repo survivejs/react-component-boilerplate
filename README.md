@@ -7,7 +7,7 @@ This is a simple boilerplate that has been developed to make it easier to develo
 
 * Replacing meta information  - **npm run replace-meta** - This will allow you to update project metadata (GitHub user/project). Note that this can be potentially dangerous since it does just a naive search/replace over *README.md* and *package.json*!
 * Linting - **npm run lint** - ESLint.
-* Testing - **npm test** - Karma/Mocha/Chai/Phantom.
+* Testing - **npm test** and **npm run tdd** - Karma/Mocha/Chai/Phantom.
 * Developing - **npm start** - This will run a server at *localhost:8080* and use Hot Module Reloading.
 * Demo deployment - **npm run gh-pages** and **npm run deploy-gh-pages** - Demo will contain *README.md* by default and comes with simple styling based on Pure.
 * Generating a distribution version - **npm run dist-all** - This will generate `/dist` (UMD bundle + minified UMD bundle) and `/dist-modules`. Latter contains a version of `/src` that has been run through babel. It is meant for NPM users.
