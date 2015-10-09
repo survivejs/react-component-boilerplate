@@ -26,7 +26,7 @@ var config = {
   library: 'Boilerplate',
 };
 
-var mergeDemo = merge.bind(null, {
+var demoCommon = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.md', '.css', '.png', '.jpg'],
   },
@@ -62,10 +62,10 @@ var mergeDemo = merge.bind(null, {
       templateContent: renderJSX
     })
   ]
-});
+};
 
 if (TARGET === 'start' || !TARGET) {
-  module.exports = mergeDemo({
+  module.exports = merge(demoCommon, {
     devtool: 'eval-source-map',
     entry: config.paths.demoIndex,
     output: {
@@ -106,7 +106,7 @@ if (TARGET === 'start' || !TARGET) {
 }
 
 if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
-  module.exports = mergeDemo({
+  module.exports = merge(commonDemo, {
     entry: {
       app: config.paths.demoIndex,
       // tweak this to include your externs unless you load them some other way
@@ -144,7 +144,7 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
   });
 }
 
-var mergeDist = merge.bind(null, {
+var distCommon = {
   devtool: 'source-map',
   output: {
     path: config.paths.dist,
@@ -172,10 +172,10 @@ var mergeDist = merge.bind(null, {
       }
     ]
   }
-});
+};
 
 if (TARGET === 'dist') {
-  module.exports = mergeDist({
+  module.exports = merge(distCommon, {
     output: {
       filename: config.filename + '.js',
     },
@@ -183,7 +183,7 @@ if (TARGET === 'dist') {
 }
 
 if (TARGET === 'dist-min') {
-  module.exports = mergeDist({
+  module.exports = merge(distCommon, {
     output: {
       filename: config.filename + '.min.js',
     },
