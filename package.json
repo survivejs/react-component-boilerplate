@@ -6,7 +6,6 @@
   "version": "0.6.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "jest && npm run lint",
     "gh-pages": "webpack",
     "deploy-gh-pages": "node ./lib/deploy_gh_pages.js",
     "dist-all": "npm run dist && npm run dist-min",
@@ -36,7 +35,6 @@
     "git-prepush-hook": "^1.0.1",
     "highlight.js": "^8.7.0",
     "html-webpack-plugin": "^1.6.1",
-    "jest-cli": "^0.4.18",
     "json-loader": "^0.5.2",
     "lodash": "^3.10.1",
     "markdown-to-react-components": "bebraw/markdown-to-react-components#images-within-links",
@@ -46,7 +44,6 @@
     "react": "^0.13.3",
     "react-ghfork": "^0.3.2",
     "react-hot-loader": "^1.3.0",
-    "react-tools": "^0.13.3",
     "replace": "^0.3.0",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
@@ -71,11 +68,5 @@
     "boilerplate"
   ],
   "license": "MIT",
-  "jest": {
-    "scriptPreprocessor": "./lib/preprocessor.js",
-    "unmockedModulePathPatterns": [
-      "./node_modules/react"
-    ]
-  },
   "pre-push": []
 }
