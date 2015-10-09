@@ -88,7 +88,7 @@ if (TARGET === 'start' || !TARGET) {
       loaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['react-hot', 'babel'],
+          loaders: ['babel'],
           include: [config.paths.demo, config.paths.src]
         }
       ]
