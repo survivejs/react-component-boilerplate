@@ -202,7 +202,7 @@ function renderJSX(templateParams, compilation) {
     description: pkg.description,
     demo: ReactDOM.renderToString(<App />),
     documentation: ReactDOM.renderToStaticMarkup(
-      <div key='documentation'>{MTRC(readme).tree}</div>
+      <div key="documentation">{MTRC(readme).tree}</div>
     )
   };
 
