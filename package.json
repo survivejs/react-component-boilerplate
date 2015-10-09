@@ -3,7 +3,7 @@
   "description": "Boilerplate for React.js components",
   "author": "Juho Vepsalainen",
   "user": "survivejs",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "karma start",
@@ -83,5 +83,7 @@
     "boilerplate"
   ],
   "license": "MIT",
-  "pre-push": ["test"]
+  "pre-push": [
+    "test"
+  ]
 }
