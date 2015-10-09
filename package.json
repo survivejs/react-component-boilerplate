@@ -52,7 +52,7 @@
     "karma-spec-reporter": "0.0.20",
     "karma-webpack": "^1.7.0",
     "lodash": "^3.10.1",
-    "markdown-to-react-components": "bebraw/markdown-to-react-components#peerdeps",
+    "markdown-to-react-components": "bebraw/markdown-to-react-components#highlight",
     "mocha": "^2.3.3",
     "phantomjs": "^1.9.18",
     "phantomjs-polyfill": "0.0.1",
