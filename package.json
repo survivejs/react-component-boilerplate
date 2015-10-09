@@ -83,5 +83,5 @@
     "boilerplate"
   ],
   "license": "MIT",
-  "pre-push": []
+  "pre-push": ["test"]
 }
