@@ -7,6 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
 var merge = require('webpack-merge');
 var React = require('react');
+var ReactDOM = require('react-dom/server');
 var MTRC = require('markdown-to-react-components');
 
 var App = require('./demo/app.jsx');
@@ -199,8 +200,8 @@ function renderJSX(templateParams, compilation) {
   var replacements = {
     name: pkg.name,
     description: pkg.description,
-    demo: React.renderToString(<App />),
-    documentation: React.renderToStaticMarkup(
+    demo: ReactDOM.renderToString(<App />),
+    documentation: ReactDOM.renderToStaticMarkup(
       <div key='documentation'>{MTRC(readme).tree}</div>
     )
   };
