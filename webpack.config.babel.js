@@ -103,11 +103,12 @@ if (TARGET === 'start' || !TARGET) {
 }
 
 if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
-  module.exports = merge(commonDemo, {
+  module.exports = merge(demoCommon, {
     entry: {
       app: config.paths.demoIndex,
-      // tweak this to include your externs unless you load them some other way
-      vendors: ['react/addons'],
+      vendors: [
+        'react'
+      ]
     },
     output: {
       path: './gh-pages',
@@ -150,12 +151,9 @@ var distCommon = {
   },
   entry: config.paths.src,
   externals: {
-    // if you are not testing,
-    // just 'react' instead of 'react/addons'
-    // will be enough
-    'react/addons': {
-        commonjs: 'react/addons',
-        commonjs2: 'react/addons',
+    'react': {
+        commonjs: 'react',
+        commonjs2: 'react',
         amd: 'React',
         root: 'React'
     }
