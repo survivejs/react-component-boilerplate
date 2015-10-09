@@ -21,36 +21,36 @@ var config = {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
     demo: path.join(ROOT_PATH, DEMO_DIR),
-    demoIndex: path.join(ROOT_PATH, DEMO_DIR, '/index'),
+    demoIndex: path.join(ROOT_PATH, DEMO_DIR, '/index')
   },
   filename: 'boilerplate',
-  library: 'Boilerplate',
+  library: 'Boilerplate'
 };
 
 var demoCommon = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg'],
+    extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loaders: ['style', 'css']
       },
       {
         test: /\.png$/,
         loader: 'url?limit=100000&mimetype=image/png',
-        include: config.paths.demo,
+        include: config.paths.demo
       },
       {
         test: /\.jpg$/,
         loader: 'file',
-        include: config.paths.demo,
+        include: config.paths.demo
       },
       {
         test: /\.json$/,
-        loader: 'json',
-      },
+        loader: 'json'
+      }
     ]
   },
   plugins: [
@@ -72,7 +72,7 @@ if (TARGET === 'start' || !TARGET) {
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify('development'),
+          'NODE_ENV': JSON.stringify('development')
         }
       }),
       new webpack.HotModuleReplacementPlugin()
@@ -82,15 +82,15 @@ if (TARGET === 'start' || !TARGET) {
         {
           test: /\.jsx?$/,
           loaders: ['eslint'],
-          include: [config.paths.demo, config.paths.src],
+          include: [config.paths.demo, config.paths.src]
         }
       ],
       loaders: [
         {
           test: /\.jsx?$/,
           loaders: ['react-hot', 'babel'],
-          include: [config.paths.demo, config.paths.src],
-        },
+          include: [config.paths.demo, config.paths.src]
+        }
       ]
     },
     devServer: {
@@ -112,21 +112,21 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
     },
     output: {
       path: './gh-pages',
-      filename: 'bundle.[chunkhash].js',
+      filename: 'bundle.[chunkhash].js'
     },
     plugins: [
       new Clean(['gh-pages']),
       new webpack.DefinePlugin({
         'process.env': {
           // This has effect on the react lib size
-          'NODE_ENV': JSON.stringify('production'),
+          'NODE_ENV': JSON.stringify('production')
         }
       }),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
-        },
+        }
       }),
       new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js')
     ],
@@ -135,7 +135,7 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
         {
           test: /\.jsx?$/,
           loaders: ['babel'],
-          include: [config.paths.demo, config.paths.src],
+          include: [config.paths.demo, config.paths.src]
         }
       ]
     }
@@ -147,7 +147,7 @@ var distCommon = {
   output: {
     path: config.paths.dist,
     libraryTarget: 'umd',
-    library: config.library,
+    library: config.library
   },
   entry: config.paths.src,
   externals: {
@@ -163,7 +163,7 @@ var distCommon = {
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
-        include: config.paths.src,
+        include: config.paths.src
       }
     ]
   }
@@ -172,23 +172,23 @@ var distCommon = {
 if (TARGET === 'dist') {
   module.exports = merge(distCommon, {
     output: {
-      filename: config.filename + '.js',
-    },
+      filename: config.filename + '.js'
+    }
   });
 }
 
 if (TARGET === 'dist-min') {
   module.exports = merge(distCommon, {
     output: {
-      filename: config.filename + '.min.js',
+      filename: config.filename + '.min.js'
     },
     plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-    }),
-    ],
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
+    ]
   });
 }
 
