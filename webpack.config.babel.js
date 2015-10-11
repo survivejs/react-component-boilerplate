@@ -1,32 +1,31 @@
 'use strict';
-var fs = require('fs');
-var path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var Clean = require('clean-webpack-plugin');
-var merge = require('webpack-merge');
-var React = require('react');
-var ReactDOM = require('react-dom/server');
-var MTRC = require('markdown-to-react-components');
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import Clean from 'clean-webpack-plugin';
+import merge from 'webpack-merge';
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import MTRC from 'markdown-to-react-components';
 
-var App = require('./demo/app.jsx');
-var pkg = require('./package.json');
+import App from './demo/app.jsx';
+import pkg from './package.json';
 
-var TARGET = process.env.npm_lifecycle_event;
-var ROOT_PATH = path.resolve(__dirname);
-var DEMO_DIR = 'demo';
-var config = {
+const TARGET = process.env.npm_lifecycle_event;
+const ROOT_PATH = path.resolve(__dirname);
+const config = {
   paths: {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
-    demo: path.join(ROOT_PATH, DEMO_DIR)
+    demo: path.join(ROOT_PATH, 'demo')
   },
   filename: 'boilerplate',
   library: 'Boilerplate'
 };
-var CSS_PATHS = [
+const CSS_PATHS = [
   config.paths.demo,
   path.join(ROOT_PATH, 'style.css'),
   path.join(ROOT_PATH, 'node_modules/purecss'),
@@ -35,7 +34,7 @@ var CSS_PATHS = [
   path.join(ROOT_PATH, 'node_modules/react-ghfork/gh-fork-ribbon.css')
 ];
 
-var demoCommon = {
+const demoCommon = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
   },
@@ -166,7 +165,7 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
   });
 }
 
-var distCommon = {
+const distCommon = {
   devtool: 'source-map',
   output: {
     path: config.paths.dist,
