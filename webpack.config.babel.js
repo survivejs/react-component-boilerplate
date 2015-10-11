@@ -21,8 +21,7 @@ var config = {
   paths: {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
-    demo: path.join(ROOT_PATH, DEMO_DIR),
-    demoIndex: path.join(ROOT_PATH, DEMO_DIR, 'index')
+    demo: path.join(ROOT_PATH, DEMO_DIR)
   },
   filename: 'boilerplate',
   library: 'Boilerplate'
@@ -70,7 +69,7 @@ var demoCommon = {
 if (TARGET === 'start' || !TARGET) {
   module.exports = merge(demoCommon, {
     devtool: 'eval-source-map',
-    entry: config.paths.demoIndex,
+    entry: config.paths.demo,
     output: {
       path: __dirname,
       filename: 'bundle.js'
@@ -121,7 +120,7 @@ if (TARGET === 'start' || !TARGET) {
 if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
   module.exports = merge(demoCommon, {
     entry: {
-      app: config.paths.demoIndex,
+      app: config.paths.demo,
       vendors: [
         'react'
       ]
