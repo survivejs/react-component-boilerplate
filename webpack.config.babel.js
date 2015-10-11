@@ -4,6 +4,7 @@ var path = require('path');
 
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
 var merge = require('webpack-merge');
 var React = require('react');
@@ -21,11 +22,19 @@ var config = {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
     demo: path.join(ROOT_PATH, DEMO_DIR),
-    demoIndex: path.join(ROOT_PATH, DEMO_DIR, '/index')
+    demoIndex: path.join(ROOT_PATH, DEMO_DIR, 'index')
   },
   filename: 'boilerplate',
   library: 'Boilerplate'
 };
+var CSS_PATHS = [
+  config.paths.demo,
+  path.join(ROOT_PATH, 'style.css'),
+  path.join(ROOT_PATH, 'node_modules/purecss'),
+  path.join(ROOT_PATH, 'node_modules/highlight.js/styles/github.css'),
+  path.join(ROOT_PATH, 'node_modules/react-ghfork/gh-fork-ribbon.ie.css'),
+  path.join(ROOT_PATH, 'node_modules/react-ghfork/gh-fork-ribbon.css')
+];
 
 var demoCommon = {
   resolve: {
@@ -33,10 +42,6 @@ var demoCommon = {
   },
   module: {
     loaders: [
-      {
-        test: /\.css$/,
-        loaders: ['style', 'css']
-      },
       {
         test: /\.png$/,
         loader: 'url?limit=100000&mimetype=image/png',
@@ -49,7 +54,8 @@ var demoCommon = {
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json',
+        include: path.join(ROOT_PATH, 'package.json')
       }
     ]
   },
@@ -82,14 +88,24 @@ if (TARGET === 'start' || !TARGET) {
         {
           test: /\.jsx?$/,
           loaders: ['eslint'],
-          include: [config.paths.demo, config.paths.src]
+          include: [
+            config.paths.demo,
+            config.paths.src]
         }
       ],
       loaders: [
         {
+          test: /\.css$/,
+          loaders: ['style', 'css'],
+          include: CSS_PATHS
+        },
+        {
           test: /\.jsx?$/,
           loaders: ['babel'],
-          include: [config.paths.demo, config.paths.src]
+          include: [
+            config.paths.demo,
+            config.paths.src
+          ]
         }
       ]
     },
@@ -116,6 +132,7 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
     },
     plugins: [
       new Clean(['gh-pages']),
+      new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.DefinePlugin({
         'process.env': {
           // This has effect on the react lib size
@@ -133,9 +150,17 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
     module: {
       loaders: [
         {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract('style', 'css'),
+          include: CSS_PATHS
+        },
+        {
           test: /\.jsx?$/,
           loaders: ['babel'],
-          include: [config.paths.demo, config.paths.src]
+          include: [
+            config.paths.demo,
+            config.paths.src
+          ]
         }
       ]
     }
