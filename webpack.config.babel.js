@@ -11,7 +11,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import MTRC from 'markdown-to-react-components';
 
-import App from './demo/app.jsx';
+import App from './demo/App.jsx';
 import pkg from './package.json';
 
 const TARGET = process.env.npm_lifecycle_event;
