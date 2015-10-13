@@ -18,7 +18,7 @@
     "prepublish": "npm run dist-modules",
     "postpublish": "npm run gh-pages && npm run deploy-gh-pages"
   },
-  "main": "dist-modules/index.js",
+  "main": "dist-modules",
   "dependencies": {
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
