@@ -10,12 +10,8 @@ If you want to replace project meta information (author etc.), consider using a 
 * Linting - **npm run lint** - ESLint.
 * Testing - **npm test** and **npm run tdd** - Karma/Mocha/Chai/Phantom.
 * Developing - **npm start** - This will run a server at *localhost:8080* and use Hot Module Reloading.
-* Demo deployment - **npm run gh-pages** and **npm run deploy-gh-pages** - Demo will contain *README.md* by default and comes with simple styling based on Pure.
-* Generating a distribution version - **npm run dist-all** - This will generate `/dist` (UMD bundle + minified UMD bundle) and `/dist-modules`. Latter contains a version of `/src` that has been run through babel. It is meant for NPM users.
-
-Note that there are hooks for `npm version`. The system will run tests, generate a distribution bundle and include that into the version commit. This can fail in case dist doesn't contain any changes! After that has completed it will generate GitHub Pages and deploy a new version.
-
-`npm publish` will generate and push *demo* to **gh-pages**.
+* Creating a version - **npm version <x.y.<>** - This will */dist* and *package.json* with the new version and create a version tag at Git.
+* Publishing a version - **npm publish** - This will push a new version to npm and update the project site.
 
 ## Highlighting Demo
 
