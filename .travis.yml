@@ -3,3 +3,7 @@ node_js:
   - "0.12"
   - "4.0"
   - "4.1"
+script:
+  - npm run test
+  - npm run lint
+
