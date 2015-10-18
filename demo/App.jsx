@@ -1,24 +1,19 @@
-'use strict';
+import React from 'react';
+import Fork from 'react-ghfork';
+import pkgInfo from '../package.json';
 
-var React = require('react');
-var Fork = require('react-ghfork');
-
-var pkgInfo = require('../package.json');
-
-module.exports = React.createClass({
-  displayName: 'App',
-
+export default class App extends React.Component {
   render() {
     return (
       <div>
         <Fork className="right" project={pkgInfo.user + '/' + pkgInfo.name} />
           <p>Just demonstrating the awesomeness of this boilerplate here.</p>
 
-          <div onClick={this.easterEgg}>...</div>
+          <div onClick={this.easterEgg}>click me</div>
       </div>
     );
-  },
-  easterEgg() {
-    console.log('easter egg');
   }
-});
+  easterEgg() {
+    alert('easter egg');
+  }
+}
