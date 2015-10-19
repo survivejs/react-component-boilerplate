@@ -56,13 +56,7 @@ const demoCommon = {
         include: path.join(ROOT_PATH, 'package.json')
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: pkg.name + ' - ' + pkg.description,
-      templateContent: renderJSX
-    })
-  ]
+  }
 };
 
 if (TARGET === 'start' || !TARGET) {
@@ -78,6 +72,10 @@ if (TARGET === 'start' || !TARGET) {
         'process.env': {
           'NODE_ENV': JSON.stringify('development')
         }
+      }),
+      new HtmlWebpackPlugin({
+        title: pkg.name + ' - ' + pkg.description,
+        templateContent: renderJSX
       }),
       new webpack.HotModuleReplacementPlugin()
     ],
@@ -136,6 +134,10 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
           // This has effect on the react lib size
           'NODE_ENV': JSON.stringify('production')
         }
+      }),
+      new HtmlWebpackPlugin({
+        title: pkg.name + ' - ' + pkg.description,
+        templateContent: renderJSX.bind(null, ReactDOM.renderToString(<App />))
       }),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
@@ -215,13 +217,15 @@ if (TARGET === 'dist-min') {
   });
 }
 
-function renderJSX(templateParams, compilation) {
+function renderJSX(demoTemplate, templateParams, compilation) {
+  demoTemplate = demoTemplate || '';
+
   var tpl = fs.readFileSync(path.join(__dirname, 'lib/index_template.tpl'), 'utf8');
   var readme = fs.readFileSync(path.join(__dirname, 'README.md'), 'utf8');
   var replacements = {
     name: pkg.name,
     description: pkg.description,
-    demo: ReactDOM.renderToString(<App />),
+    demo: demoTemplate,
     documentation: ReactDOM.renderToStaticMarkup(
       <div key="documentation">{MTRC(readme).tree}</div>
     )
