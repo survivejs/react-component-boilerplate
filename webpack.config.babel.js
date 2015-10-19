@@ -34,6 +34,8 @@ const CSS_PATHS = [
   path.join(ROOT_PATH, 'node_modules/react-ghfork/gh-fork-ribbon.css')
 ];
 
+process.env.BABEL_ENV = TARGET;
+
 const demoCommon = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
