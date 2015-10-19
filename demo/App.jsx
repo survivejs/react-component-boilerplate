@@ -1,6 +1,7 @@
 import React from 'react';
 import Fork from 'react-ghfork';
 import pkgInfo from '../package.json';
+import Demo from './Demo.jsx';
 
 export default class App extends React.Component {
   render() {
@@ -9,11 +10,8 @@ export default class App extends React.Component {
         <Fork className="right" project={pkgInfo.user + '/' + pkgInfo.name} />
         <p>Just demonstrating the awesomeness of this boilerplate here.</p>
 
-        <div onClick={this.easterEgg}>click me</div>
+        <Demo />
       </div>
     );
-  }
-  easterEgg() {
-    alert('easter egg');
   }
 }
