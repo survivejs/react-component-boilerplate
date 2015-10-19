@@ -14,7 +14,7 @@ import App from './App.jsx';
 main();
 
 function main() {
-  var app = document.getElementsByClassName('demonstration')[0];
+  const app = document.getElementsByClassName('demonstration')[0];
 
   ReactDOM.render(<App />, app);
 }
