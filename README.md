@@ -9,7 +9,7 @@ If you want to replace project meta information (author etc.), consider using a 
 
 * Linting - **npm run lint** - ESLint.
 * Testing - **npm test** and **npm run tdd** - Karma/Mocha/Chai/Phantom.
-* Developing - **npm start** - This will run a server at *localhost:8080* and use Hot Module Reloading.
+* Developing - **npm start** - This will run a server at *localhost:8080* and use Hot Module Replacement.
 * Creating a version - **npm version <x.y.<>** - This will */dist* and *package.json* with the new version and create a version tag at Git.
 * Publishing a version - **npm publish** - This will push a new version to npm and update the project site.
 
