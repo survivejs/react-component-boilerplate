@@ -72,7 +72,7 @@ const demoCommon = {
   }
 };
 
-if (TARGET === 'start' || !TARGET) {
+if (TARGET === 'start') {
   module.exports = merge(demoCommon, {
     devtool: 'eval-source-map',
     entry: config.paths.demo,
@@ -171,7 +171,8 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
   });
 }
 
-if (TARGET === 'test' || TARGET === 'tdd') {
+// !TARGET === prepush hook for test
+if (TARGET === 'test' || TARGET === 'tdd' || !TARGET) {
   module.exports = merge(demoCommon, {
     module: {
       preLoaders: [
