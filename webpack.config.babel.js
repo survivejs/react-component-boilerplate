@@ -20,7 +20,8 @@ const config = {
   paths: {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
-    demo: path.join(ROOT_PATH, 'demo')
+    demo: path.join(ROOT_PATH, 'demo'),
+    tests: path.join(ROOT_PATH, 'tests')
   },
   filename: 'boilerplate',
   library: 'Boilerplate'
@@ -47,7 +48,8 @@ const demoCommon = {
         loaders: ['eslint'],
         include: [
           config.paths.demo,
-          config.paths.src]
+          config.paths.src
+        ]
       }
     ],
     loaders: [
@@ -167,6 +169,32 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
       ]
     }
   });
+}
+
+if (TARGET === 'test' || TARGET === 'tdd') {
+  module.exports = merge(demoCommon, {
+    module: {
+      preLoaders: [
+        {
+          test: /\.jsx?$/,
+          loaders: ['eslint'],
+          include: [
+            config.paths.tests
+          ]
+        }
+      ],
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          loaders: ['babel'],
+          include: [
+            config.paths.src,
+            config.paths.tests
+          ]
+        }
+      ]
+    }
+  })
 }
 
 const distCommon = {
