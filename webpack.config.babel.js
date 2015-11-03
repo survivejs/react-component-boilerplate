@@ -113,7 +113,9 @@ if (TARGET === 'start') {
       historyApiFallback: true,
       hot: true,
       inline: true,
-      progress: true
+      progress: true,
+      host: process.env.HOST,
+      port: process.env.PORT
     }
   });
 }
