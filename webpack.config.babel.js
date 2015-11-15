@@ -76,10 +76,6 @@ if (TARGET === 'start') {
   module.exports = merge(demoCommon, {
     devtool: 'eval-source-map',
     entry: config.paths.demo,
-    output: {
-      path: __dirname,
-      filename: 'bundle.js'
-    },
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
