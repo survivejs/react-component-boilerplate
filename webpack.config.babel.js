@@ -111,7 +111,8 @@ if (TARGET === 'start') {
       inline: true,
       progress: true,
       host: process.env.HOST,
-      port: process.env.PORT
+      port: process.env.PORT,
+      stats: 'errors-only'
     }
   });
 }
