@@ -5,6 +5,7 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import SystemBellPlugin from 'system-bell-webpack-plugin';
 import Clean from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
 import React from 'react';
@@ -69,7 +70,10 @@ const demoCommon = {
         include: path.join(ROOT_PATH, 'package.json')
       }
     ]
-  }
+  },
+  plugins: [
+    new SystemBellPlugin()
+  ]
 };
 
 if (TARGET === 'start') {
@@ -221,7 +225,10 @@ const distCommon = {
         include: config.paths.src
       }
     ]
-  }
+  },
+  plugins: [
+    new SystemBellPlugin()
+  ]
 };
 
 if (TARGET === 'dist') {

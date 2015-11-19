@@ -62,6 +62,7 @@
     "react-transform-hmr": "^1.0.1",
     "style-loader": "^0.12.4",
     "sync-exec": "^0.6.2",
+    "system-bell-webpack-plugin": "^1.0.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0",
