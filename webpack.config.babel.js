@@ -151,8 +151,9 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
       }),
       new webpack.optimize.CommonsChunkPlugin({
         names: ['vendors', 'manifest']
-      }),
-      new webpack.NamedModulesPlugin()
+      })
+      // XXX: glitchy still
+      //new webpack.NamedModulesPlugin()
     ],
     module: {
       loaders: [
