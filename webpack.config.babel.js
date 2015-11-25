@@ -82,9 +82,7 @@ if (TARGET === 'start') {
     entry: config.paths.demo,
     plugins: [
       new webpack.DefinePlugin({
-        'process.env': {
-          'NODE_ENV': JSON.stringify('development')
-        }
+        'process.env.NODE_ENV': JSON.stringify('development')
       }),
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
@@ -137,10 +135,8 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
       new Clean(['gh-pages']),
       new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.DefinePlugin({
-        'process.env': {
           // This has effect on the react lib size
-          'NODE_ENV': JSON.stringify('production')
-        }
+        'process.env.NODE_ENV': JSON.stringify('production')
       }),
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
