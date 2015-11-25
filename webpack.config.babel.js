@@ -16,7 +16,7 @@ import App from './demo/App.jsx';
 import pkg from './package.json';
 
 const TARGET = process.env.npm_lifecycle_event;
-const ROOT_PATH = path.resolve(__dirname);
+const ROOT_PATH = __dirname;
 const config = {
   paths: {
     dist: path.join(ROOT_PATH, 'dist'),
