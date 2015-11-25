@@ -148,7 +148,10 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
           warnings: false
         }
       }),
-      new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[chunkhash].js')
+      new webpack.optimize.CommonsChunkPlugin({
+        names: ['vendors', 'manifest']
+      }),
+      new webpack.NamedModulesPlugin()
     ],
     module: {
       loaders: [
