@@ -129,7 +129,8 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
     },
     output: {
       path: './gh-pages',
-      filename: 'bundle.[chunkhash].js'
+      filename: 'bundle.[chunkhash].js',
+      chunkFilename: '[chunkhash].js'
     },
     plugins: [
       new Clean(['gh-pages']),
