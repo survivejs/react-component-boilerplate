@@ -1,5 +1,3 @@
-'use strict';
-
 import 'purecss';
 import 'highlight.js/styles/github.css';
 import 'react-ghfork/gh-fork-ribbon.ie.css';
