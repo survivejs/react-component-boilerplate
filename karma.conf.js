@@ -1,5 +1,5 @@
 // Reference: http://karma-runner.github.io/0.13/config/configuration-file.html
-require('babel/register');
+require('babel-register');
 
 module.exports = function karmaConfig (config) {
     config.set({
