@@ -67,7 +67,11 @@ const demoCommon = {
       {
         test: /\.json$/,
         loader: 'json',
-        include: path.join(ROOT_PATH, 'package.json')
+        include: [
+          path.join(ROOT_PATH, 'package.json'),
+          // MTRC seems to require this
+          path.join(ROOT_PATH, 'node_modules/ent')
+        ]
       }
     ]
   },
