@@ -14,6 +14,7 @@ import MTRC from 'markdown-to-react-components';
 import App from './demo/App.jsx';
 import pkg from './package.json';
 
+const RENDER_UNIVERSAL = true;
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = __dirname;
 const config = {
@@ -140,7 +141,10 @@ if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
       }),
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
-        templateContent: renderJSX.bind(null, ReactDOM.renderToString(<App />))
+        templateContent: renderJSX.bind(
+          null,
+          RENDER_UNIVERSAL ? ReactDOM.renderToString(<App />) : ''
+        )
       }),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
@@ -271,6 +275,6 @@ function renderJSX(demoTemplate, templateParams, compilation) {
   return tpl.replace(/%(\w*)%/g, function(match) {
     var key = match.slice(1, -1);
 
-    return replacements[key] ? replacements[key] : match;
+    return typeof replacements[key] === 'string' ? replacements[key] : match;
   });
 }
