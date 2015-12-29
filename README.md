@@ -13,7 +13,7 @@ If you want to replace project meta information (author etc.), consider using a 
 * Creating a version - **npm version <x.y.<>** - Updates */dist* and *package.json* with the new version and create a version tag to Git.
 * Publishing a version - **npm publish** - Pushes a new version to npm and updates the project site.
 
-> If you don't want to use universal rendering for the React portion, set `RENDER_UNIVERSAL` to `false` at *webpack.config.babel.js*.
+If you don't want to use universal rendering for the React portion, set `RENDER_UNIVERSAL` to `false` at *webpack.config.babel.js*.
 
 ## Highlighting Demo
 
