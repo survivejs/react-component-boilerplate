@@ -99,7 +99,7 @@ if (TARGET === 'start') {
         },
         {
           test: /\.jsx?$/,
-          loaders: ['babel'],
+          loaders: ['babel?cacheDirectory'],
           include: [
             config.paths.demo,
             config.paths.src
@@ -194,7 +194,7 @@ if (TARGET === 'test' || TARGET === 'tdd' || !TARGET) {
       loaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['babel'],
+          loaders: ['babel?cacheDirectory'],
           include: [
             config.paths.src,
             config.paths.tests
