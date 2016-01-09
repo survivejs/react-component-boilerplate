@@ -119,7 +119,7 @@ if (TARGET === 'start') {
   });
 }
 
-if (TARGET === 'gh-pages' || TARGET === 'deploy-gh-pages') {
+if (TARGET === 'gh-pages') {
   module.exports = merge(demoCommon, {
     entry: {
       app: config.paths.demo,
