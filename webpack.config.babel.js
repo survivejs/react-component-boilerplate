@@ -258,7 +258,7 @@ if (TARGET === 'dist-min') {
   });
 }
 
-function renderJSX(demoTemplate, templateParams, compilation) {
+function renderJSX(demoTemplate) {
   demoTemplate = demoTemplate || '';
 
   var tpl = fs.readFileSync(path.join(__dirname, 'lib/index_template.tpl'), 'utf8');
