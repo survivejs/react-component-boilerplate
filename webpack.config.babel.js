@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+import * as path from 'path';
 
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -9,8 +8,8 @@ import Clean from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import MTRC from 'markdown-to-react-components';
 
+import renderJSX from './lib/render.jsx';
 import App from './demo/App.jsx';
 import pkg from './package.json';
 
@@ -86,7 +85,7 @@ if (TARGET === 'start') {
       }),
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
-        templateContent: renderJSX
+        templateContent: renderJSX.bind(null, __dirname, pkg)
       }),
       new webpack.HotModuleReplacementPlugin()
     ],
@@ -143,6 +142,8 @@ if (TARGET === 'gh-pages') {
         title: pkg.name + ' - ' + pkg.description,
         templateContent: renderJSX.bind(
           null,
+          __dirname,
+          pkg,
           RENDER_UNIVERSAL ? ReactDOM.renderToString(<App />) : ''
         )
       }),
@@ -155,8 +156,6 @@ if (TARGET === 'gh-pages') {
       new webpack.optimize.CommonsChunkPlugin({
         names: ['vendors', 'manifest']
       })
-      // XXX: glitchy still
-      //new webpack.NamedModulesPlugin()
     ],
     module: {
       loaders: [
@@ -255,26 +254,5 @@ if (TARGET === 'dist-min') {
         }
       })
     ]
-  });
-}
-
-function renderJSX(demoTemplate) {
-  demoTemplate = demoTemplate || '';
-
-  var tpl = fs.readFileSync(path.join(__dirname, 'lib/index_template.tpl'), 'utf8');
-  var readme = fs.readFileSync(path.join(__dirname, 'README.md'), 'utf8');
-  var replacements = {
-    name: pkg.name,
-    description: pkg.description,
-    demo: demoTemplate,
-    documentation: ReactDOM.renderToStaticMarkup(
-      <div key="documentation">{MTRC(readme).tree}</div>
-    )
-  };
-
-  return tpl.replace(/%(\w*)%/g, function(match) {
-    var key = match.slice(1, -1);
-
-    return typeof replacements[key] === 'string' ? replacements[key] : match;
   });
 }
