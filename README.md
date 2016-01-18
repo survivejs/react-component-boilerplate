@@ -15,6 +15,14 @@ If you want to replace project meta information (author etc.), consider using a 
 
 If you don't want to use universal rendering for the React portion, set `RENDER_UNIVERSAL` to `false` at *webpack.config.babel.js*.
 
+### gh-pages
+
+The boilerplate includes a GitHub Pages specific portion for setting up a demo site for the component. The main commands handle with the details for you. Sometimes you might want to generate and deploy it by hand, or just investigate the generated bundle.
+
+* Building - **npm run gh-pages** - Builds the demo into `./gh-pages` directory.
+* Deploying - **npm run deploy-gh-pages** - Deploys the contents of `./gh-pages` to the `gh-pages` branch. GitHub will pick this up automatically. Your site will be available through *<user name>.github.io/<project name>`.
+* Generating stats - **npm run stats** - Generates stats that can be passed to [webpack analyse tool](https://webpack.github.io/analyse/). This is useful for investigating what the build consists of.
+
 ## Highlighting Demo
 
 ```js

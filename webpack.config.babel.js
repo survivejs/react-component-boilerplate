@@ -118,7 +118,7 @@ if (TARGET === 'start') {
   });
 }
 
-if (TARGET === 'gh-pages') {
+if (TARGET === 'gh-pages' || TARGET === 'stats') {
   module.exports = merge(demoCommon, {
     entry: {
       app: config.paths.demo,
@@ -132,7 +132,9 @@ if (TARGET === 'gh-pages') {
       chunkFilename: '[chunkhash].js'
     },
     plugins: [
-      new Clean(['gh-pages']),
+      new Clean(['gh-pages'], {
+        verbose: false
+      }),
       new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.DefinePlugin({
           // This has effect on the react lib size
