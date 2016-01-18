@@ -3,22 +3,18 @@
   "description": "Boilerplate for React.js components",
   "author": "Juho Vepsalainen",
   "user": "survivejs",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "scripts": {
     "start": "webpack-dev-server",
-
     "test": "karma start",
     "test:tdd": "karma start --auto-watch --no-single-run",
     "test:lint": "eslint . --ext .js --ext .jsx",
-
     "gh-pages": "webpack",
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --profile --json > stats.json",
-
     "dist": "webpack",
     "dist:min": "webpack",
     "dist:modules": "babel ./src --out-dir ./dist-modules",
-
     "preversion": "npm run test && npm run test:lint && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
     "prepublish": "npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
@@ -38,15 +34,12 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.0.1",
     "babel-register": "^6.4.3",
-
     "chai": "^3.4.1",
     "clean-webpack-plugin": "^0.1.6",
     "css-loader": "^0.23.1",
-
     "eslint": "^1.10.3",
     "eslint-loader": "^1.2.0",
     "eslint-plugin-react": "^3.15.0",
-
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "gh-pages": "^0.8.0",
@@ -55,7 +48,6 @@
     "html-webpack-plugin": "^1.7.0",
     "isparta-instrumenter-loader": "^1.0.0",
     "json-loader": "^0.5.4",
-
     "karma": "^0.13.19",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^0.5.3",
@@ -64,23 +56,17 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
-
     "markdown-to-react-components": "bebraw/markdown-to-react-components#highlight",
     "mocha": "^2.3.4",
-
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
-
     "purecss": "^0.6.0",
-
     "react-addons-test-utils": "^0.14.6",
     "react-ghfork": "^0.3.2",
-
     "style-loader": "^0.13.0",
     "sync-exec": "^0.6.2",
     "system-bell-webpack-plugin": "^1.0.0",
     "url-loader": "^0.5.7",
-
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.7.3"
