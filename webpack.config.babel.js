@@ -118,7 +118,7 @@ if (TARGET === 'start') {
   });
 }
 
-if (TARGET === 'gh-pages' || TARGET === 'stats') {
+if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
   module.exports = merge(demoCommon, {
     entry: {
       app: config.paths.demo,
@@ -180,7 +180,7 @@ if (TARGET === 'gh-pages' || TARGET === 'stats') {
 }
 
 // !TARGET === prepush hook for test
-if (TARGET === 'test' || TARGET === 'tdd' || !TARGET) {
+if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
   module.exports = merge(demoCommon, {
     module: {
       preLoaders: [
@@ -244,7 +244,7 @@ if (TARGET === 'dist') {
   });
 }
 
-if (TARGET === 'dist-min') {
+if (TARGET === 'dist:min') {
   module.exports = merge(distCommon, {
     output: {
       filename: config.filename + '.min.js'
