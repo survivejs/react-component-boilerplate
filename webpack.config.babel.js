@@ -83,10 +83,12 @@ if (TARGET === 'start') {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('development')
       }),
-      new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin(Object.assign({}, {
         title: pkg.name + ' - ' + pkg.description,
-        templateContent: renderJSX.bind(null, __dirname, pkg)
-      }),
+        template: 'lib/index_template.ejs',
+
+        inject: false
+      }, renderJSX(__dirname, pkg))),
       new webpack.HotModuleReplacementPlugin()
     ],
     module: {
@@ -140,15 +142,13 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
           // This has effect on the react lib size
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
-      new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin(Object.assign({}, {
         title: pkg.name + ' - ' + pkg.description,
-        templateContent: renderJSX.bind(
-          null,
-          __dirname,
-          pkg,
-          RENDER_UNIVERSAL ? ReactDOM.renderToString(<App />) : ''
-        )
-      }),
+        template: 'lib/index_template.ejs',
+        inject: false
+      }, renderJSX(
+        __dirname, pkg, RENDER_UNIVERSAL ? ReactDOM.renderToString(<App />) : '')
+      )),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
