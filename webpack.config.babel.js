@@ -81,7 +81,7 @@ if (TARGET === 'start') {
     entry: config.paths.demo,
     plugins: [
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('development')
+        'process.env.NODE_ENV': '"development"'
       }),
       new HtmlWebpackPlugin(Object.assign({}, {
         title: pkg.name + ' - ' + pkg.description,
@@ -139,8 +139,8 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       }),
       new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.DefinePlugin({
-          // This has effect on the react lib size
-        'process.env.NODE_ENV': JSON.stringify('production')
+          // This affects the react lib size
+        'process.env.NODE_ENV': '"production"'
       }),
       new HtmlWebpackPlugin(Object.assign({}, {
         title: pkg.name + ' - ' + pkg.description,
