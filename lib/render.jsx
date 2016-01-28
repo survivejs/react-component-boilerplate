@@ -3,7 +3,8 @@ import * as path from 'path';
 
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import MTRC from 'markdown-to-react-components';
+import remark from 'remark';
+import reactRenderer from 'remark-react';
 
 export default function (rootPath, context, demoTemplate) {
   demoTemplate = demoTemplate || '';
@@ -17,7 +18,9 @@ export default function (rootPath, context, demoTemplate) {
     description: context.description,
     demonstration: demoTemplate,
     documentation: ReactDOM.renderToStaticMarkup(
-      <div key="documentation">{MTRC(readme).tree}</div>
+      <div key="documentation">
+        {remark().use(reactRenderer).process(readme)}
+      </div>
     )
   };
 }
