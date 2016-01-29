@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
 
-main();
+const app = document.getElementsByClassName('demonstration')[0];
 
-function main() {
-  const app = document.getElementsByClassName('demonstration')[0];
+ReactDOM.render(<App />, app);
 
-  ReactDOM.render(<App />, app);
-}
