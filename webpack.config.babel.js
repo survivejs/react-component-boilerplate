@@ -120,6 +120,28 @@ if (TARGET === 'start') {
   });
 }
 
+function NamedModulesPlugin(options) {
+  this.options = options || {};
+}
+NamedModulesPlugin.prototype.apply = function(compiler) {
+  compiler.plugin('compilation', function(compilation) {
+    compilation.plugin('before-module-ids', function(modules) {
+      modules.forEach(function(module) {
+        if(module.id === null && module.libIdent) {
+          var id = module.libIdent({
+            context: this.options.context || compiler.options.context
+          });
+
+          // Skip CSS files since those go through ExtractTextPlugin
+          if(!id.endsWith('.css')) {
+            module.id = id;
+          }
+        }
+      }, this);
+    }.bind(this));
+  }.bind(this));
+};
+
 if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
   module.exports = merge(demoCommon, {
     entry: {
@@ -149,7 +171,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       }, renderJSX(
         __dirname, pkg, RENDER_UNIVERSAL ? ReactDOM.renderToString(<App />) : '')
       )),
-      new webpack.NamedModulesPlugin(),
+      new NamedModulesPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
