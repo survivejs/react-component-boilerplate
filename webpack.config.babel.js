@@ -148,6 +148,14 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       app: config.paths.demo,
       vendors: [
         'react'
+      ],
+      style: [
+        'purecss',
+        'highlight.js/styles/github.css',
+        'react-ghfork/gh-fork-ribbon.ie.css',
+        'react-ghfork/gh-fork-ribbon.css',
+        './demo/main.css',
+        './style.css'
       ]
     },
     output: {
@@ -159,7 +167,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       new Clean(['gh-pages'], {
         verbose: false
       }),
-      new ExtractTextPlugin('styles.[chunkhash].css'),
+      new ExtractTextPlugin('[name].[chunkhash].css'),
       new webpack.DefinePlugin({
           // This affects the react lib size
         'process.env.NODE_ENV': '"production"'
