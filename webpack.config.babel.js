@@ -149,6 +149,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       }, renderJSX(
         __dirname, pkg, RENDER_UNIVERSAL ? ReactDOM.renderToString(<App />) : '')
       )),
+      new webpack.NamedModulesPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
