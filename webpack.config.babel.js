@@ -34,6 +34,14 @@ const CSS_PATHS = [
   path.join(ROOT_PATH, 'node_modules/react-ghfork/gh-fork-ribbon.ie.css'),
   path.join(ROOT_PATH, 'node_modules/react-ghfork/gh-fork-ribbon.css')
 ];
+const STYLE_ENTRIES = [
+  'purecss',
+  'highlight.js/styles/github.css',
+  'react-ghfork/gh-fork-ribbon.ie.css',
+  'react-ghfork/gh-fork-ribbon.css',
+  './demo/main.css',
+  './style.css'
+];
 
 process.env.BABEL_ENV = TARGET;
 
@@ -78,7 +86,9 @@ const demoCommon = {
 if (TARGET === 'start') {
   module.exports = merge(demoCommon, {
     devtool: 'eval-source-map',
-    entry: config.paths.demo,
+    entry: {
+      demo: [config.paths.demo].concat(STYLE_ENTRIES)
+    },
     plugins: [
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"development"'
@@ -149,14 +159,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       vendors: [
         'react'
       ],
-      style: [
-        'purecss',
-        'highlight.js/styles/github.css',
-        'react-ghfork/gh-fork-ribbon.ie.css',
-        'react-ghfork/gh-fork-ribbon.css',
-        './demo/main.css',
-        './style.css'
-      ]
+      style: STYLE_ENTRIES
     },
     output: {
       path: './gh-pages',
