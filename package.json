@@ -38,7 +38,7 @@
     "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.8",
     "css-loader": "^0.23.1",
-    "eslint": "^2.2.0",
+    "eslint": "2.2.x",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^4.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
