@@ -250,10 +250,10 @@ const distCommon = {
   entry: config.paths.src,
   externals: {
     'react': {
-        commonjs: 'react',
-        commonjs2: 'react',
-        amd: 'React',
-        root: 'React'
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React'
     }
   },
   module: {
