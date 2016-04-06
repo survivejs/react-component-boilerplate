@@ -63,6 +63,7 @@
     "purecss": "^0.6.0",
     "react-addons-test-utils": "^0.14.7",
     "react-ghfork": "^0.3.2",
+    "react-lowlight": "^1.0.0",
     "remark": "^4.1.2",
     "remark-react": "^2.0.0",
     "style-loader": "^0.13.1",
