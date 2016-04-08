@@ -5,11 +5,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
-import Lowlight from 'react-lowlight';
+import RemarkLowlight from 'remark-react-lowlight'
 
 import js from 'highlight.js/lib/languages/javascript';
-
-Lowlight.registerLanguage('js', js);
 
 export default function (rootPath, context, demoTemplate) {
   demoTemplate = demoTemplate || '';
@@ -26,18 +24,12 @@ export default function (rootPath, context, demoTemplate) {
       <div key="documentation">
         {remark().use(reactRenderer, {
           remarkReactComponents: {
-            code: Code
+            code: RemarkLowlight({
+              js
+            })
           }
         }).process(readme)}
       </div>
     )
   };
 }
-
-const Code = ({className, children}) => (
-  <Lowlight language={className.split('-')[1]} value={children} />
-);
-Code.propTypes = {
-  className: React.PropTypes.string,
-  children: React.PropTypes.node
-};
