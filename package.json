@@ -60,7 +60,7 @@
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-ghfork": "^0.3.2",
+    "react-ghfork": "^0.3.3",
     "remark": "^4.2.0",
     "remark-react": "^2.0.0",
     "remark-react-lowlight": "^0.1.0",
