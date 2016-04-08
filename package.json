@@ -22,10 +22,6 @@
     "postinstall": "node lib/post_install.js"
   },
   "main": "dist-modules",
-  "dependencies": {
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8"
-  },
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
@@ -62,6 +58,7 @@
     "phantomjs-prebuilt": "^2.1.7",
     "purecss": "^0.6.0",
     "react-addons-test-utils": "^0.14.8",
+    "react-dom": "^0.14.8",
     "react-ghfork": "^0.3.2",
     "remark": "^4.2.0",
     "remark-react": "^2.0.0",
@@ -73,6 +70,9 @@
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.8.4"
+  },
+  "peerDependencies": {
+    "react": ">= 0.11.2 < 16.0.0"
   },
   "repository": {
     "type": "git",
