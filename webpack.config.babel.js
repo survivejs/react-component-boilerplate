@@ -1,8 +1,8 @@
-import * as fs from 'fs';
 import * as path from 'path';
 
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackRemarkPlugin from 'html-webpack-remark-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SystemBellPlugin from 'system-bell-webpack-plugin';
 import CleanPlugin from 'clean-webpack-plugin';
@@ -10,7 +10,6 @@ import merge from 'webpack-merge';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
-import HtmlWebpackRemarkPlugin from './lib/html-webpack-remark-plugin';
 import App from './demo/App.jsx';
 import pkg from './package.json';
 
