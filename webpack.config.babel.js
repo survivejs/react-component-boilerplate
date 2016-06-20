@@ -99,7 +99,6 @@ if (TARGET === 'start') {
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
         template: 'lib/index_template.ejs',
-        inject: false,
 
         // Context for the template
         name: pkg.name,
@@ -192,7 +191,6 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
         template: 'lib/index_template.ejs',
-        inject: false,
 
         // Context for the template
         name: pkg.name,
