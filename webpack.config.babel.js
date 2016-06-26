@@ -242,7 +242,7 @@ if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
       preLoaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['eslint'],
+          loaders: ['isparta', 'eslint'],
           include: [
             config.paths.tests
           ]

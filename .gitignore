@@ -2,5 +2,6 @@ build/
 gh-pages/
 dist-modules/
 node_modules/
+coverage/
 .eslintcache
 
