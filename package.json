@@ -14,7 +14,7 @@
     "gh-pages:stats": "webpack --profile --json > stats.json",
     "dist": "webpack",
     "dist:min": "webpack",
-    "dist:modules": "babel ./src --out-dir ./dist-modules",
+    "dist:modules": "rm -rf ./dist-modules && babel ./src --out-dir ./dist-modules",
     "pretest": "npm run test:lint",
     "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
     "prepublish": "npm run dist:modules",
