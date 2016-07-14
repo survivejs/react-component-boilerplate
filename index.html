@@ -1,57 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>react-component-boilerplate - Boilerplate for React.js components</title>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6" > <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7" > <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8" > <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9" > <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>react-component-boilerplate</title>
 
-    
+  
+  
 
-    
+  
+  <link href="app.f3e34b1e25527e3948d6.css" rel="stylesheet">
+  
 
-    
-    <link href="style.b4211932abb0b92b7e1e.css" rel="stylesheet">
-    
+  
 
-    
-  </head>
-  <body>
-    <div class="pure-g">
-      <header class="pure-u-1">
-        
-        <h1>react-component-boilerplate</h1>
-        
+</head>
+<body>
 
-        
-        <div class="description">Boilerplate for React.js components</div>
-        
-      </header>
 
-      <article class="pure-u-1">
-        <h2>Demonstration</h2>
-        <section class="demonstration">
-          <div data-reactroot="" data-reactid="1" data-react-checksum="950045282"><div class="right github-fork-ribbon-wrapper" data-reactid="2"><div class="github-fork-ribbon" data-reactid="3"><a href="https://github.com/survivejs/react-component-boilerplate" data-reactid="4">Fork me on GitHub</a></div></div><p data-reactid="5">Just demonstrating the awesomeness of this boilerplate here.</p><div data-reactid="6">click me</div></div>
-        </section>
 
-        <h2>Documentation</h2>
-        <section class="documentation">
-          <div><div><p><a href="http://travis-ci.org/survivejs/react-component-boilerplate"><img src="https://secure.travis-ci.org/survivejs/react-component-boilerplate.png" alt="build status"/></a><span> </span><a href="https://www.bithound.io/github/survivejs/react-component-boilerplate"><img src="https://www.bithound.io/github/survivejs/react-component-boilerplate/badges/score.svg" alt="bitHound Score"/></a><span> </span><a href="https://david-dm.org/survivejs/react-component-boilerplate"><img src="https://david-dm.org/survivejs/react-component-boilerplate.svg" alt="Dependency Status"/></a></p><h1><span>react-component-boilerplate - Boilerplate for React.js components</span></h1><p><span>This is a simple boilerplate that has been developed to make it easier to develop React components and small projects.</span></p><blockquote><p><span>Check out </span><a href="http://survivejs.com/"><span>SurviveJS - Webpack and React</span></a><span> to dig deeper into the topic.</span></p></blockquote><h2><span>Basic Usage</span></h2><p><span>If you want to replace project meta information (author etc.), consider using a tool like </span><a href="https://www.npmjs.com/package/replace-project-meta"><span>replace-project-meta</span></a><span>.</span></p><h3><span>Common Tasks</span></h3><ul><li><span>Developing - </span><strong><span>npm start</span></strong><span> - Runs the development server at </span><em><span>localhost:8080</span></em><span> and use Hot Module Replacement. You can override the default host and port through env (</span><code>HOST</code><span>, </span><code>PORT</code><span>).</span></li><li><span>Creating a version - </span><strong><span>npm version &lt;x.y.z&gt;</span></strong><span> - Updates </span><em><span>/dist</span></em><span> and </span><em><span>package.json</span></em><span> with the new version and create a version tag to Git.</span></li><li><span>Publishing a version - </span><strong><span>npm publish</span></strong><span> - Pushes a new version to npm and updates the project site.</span></li></ul><p><span>If you don&#x27;t want to use universal rendering for the React portion, set </span><code>RENDER_UNIVERSAL</code><span> to </span><code>false</code><span> at </span><em><span>webpack.config.babel.js</span></em><span>.</span></p><h3><span>Testing</span></h3><p><span>The test setup is based on Karma/Mocha/Chai/Phantom. Code coverage report is generated through istanbul/isparta to </span><code>build/</code><span>.</span></p><ul><li><span>Running tests once - </span><strong><span>npm test</span></strong></li><li><span>Running tests continuously </span><strong><span>npm run test:tdd</span></strong></li><li><span>Linting - </span><strong><span>npm run test:lint</span></strong><span> - Runs ESLint.</span></li></ul><h3><span>Demo Site</span></h3><p><span>The boilerplate includes a </span><a href="https://pages.github.com/"><span>GitHub Pages</span></a><span> specific portion for setting up a demo site for the component. The main commands handle with the details for you. Sometimes you might want to generate and deploy it by hand, or just investigate the generated bundle.</span></p><ul><li><span>Building - </span><strong><span>npm run gh-pages</span></strong><span> - Builds the demo into </span><code>./gh-pages</code><span> directory.</span></li><li><span>Deploying - </span><strong><span>npm run deploy-gh-pages</span></strong><span> - Deploys the contents of </span><code>./gh-pages</code><span> to the </span><code>gh-pages</code><span> branch. GitHub will pick this up automatically. Your site will be available through *</span>&lt;user name&gt;<span>.github.io/</span>&lt;project name&gt;<span>`.</span></li><li><span>Generating stats - </span><strong><span>npm run stats</span></strong><span> - Generates stats that can be passed to </span><a href="https://webpack.github.io/analyse/"><span>webpack analyse tool</span></a><span>. This is useful for investigating what the build consists of.</span></li></ul><h2><span>Highlighting Demo for the Site</span></h2><pre><pre class="lowlight"><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span>;
-<span class="hljs-keyword">var</span> b = <span class="hljs-number">10</span>;
+<div id="app"></div>
 
-<span class="hljs-comment">// just trying out code highlighting feature here</span>
-<span class="hljs-built_in">console</span>.log(a + b);
-</code></pre></pre><h2><span>License</span></h2><p><em><span>react-component-boilerplate</span></em><span> is available under MIT. See LICENSE for more details.</span></p></div></div>
-        </section>
-      </article>
-    </div>
 
-    
-      <script src="manifest.bc1289d1e7b767d7b107.js"></script>
-    
-      <script src="vendors.62129a4517857f9d517a.js"></script>
-    
-      <script src="style.b4211932abb0b92b7e1e.js"></script>
-    
-      <script src="app.bb350e7c1860e820b232.js"></script>
-    
-  </body>
+
+
+
+
+
+<script src="manifest.fbd959e40ce67f7adef3.js"></script>
+
+<script src="vendors.8c4312b15749c77f4839.js"></script>
+
+<script src="app.f3e34b1e25527e3948d6.js"></script>
+
+
+
+
+
+</body>
 </html>
