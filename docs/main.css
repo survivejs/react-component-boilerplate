@@ -1,0 +1,14 @@
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.github-fork-ribbon {
+    position: fixed;
+
+    letter-spacing: 0.01em;
+}
+
+/* TODO: insert main styles of your demo here */
