@@ -95,7 +95,7 @@ if (TARGET === 'start') {
       loaders: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css'],
+          loaders: ['style', 'css']
         },
         {
           test: /\.jsx?$/,
