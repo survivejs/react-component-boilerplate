@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import SystemBellPlugin from 'system-bell-webpack-plugin';
-import CleanPlugin from 'clean-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
 
 const pkg = require('./package.json');
@@ -156,7 +156,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       chunkFilename: '[chunkhash].js'
     },
     plugins: [
-      new CleanPlugin(['gh-pages'], {
+      new CleanWebpackPlugin(['gh-pages'], {
         verbose: false
       }),
       new ExtractTextPlugin('[name].[chunkhash].css'),
