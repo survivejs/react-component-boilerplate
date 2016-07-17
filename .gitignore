@@ -3,5 +3,5 @@ gh-pages/
 dist-modules/
 node_modules/
 coverage/
+npm-debug.log
 .eslintcache
-
