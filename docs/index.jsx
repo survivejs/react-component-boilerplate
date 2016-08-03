@@ -1,12 +1,10 @@
 /* eslint-disable global-require, import/no-unresolved, react/no-multi-comp */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Fork from 'react-ghfork';
+import GithubCorner from 'react-github-corner';
 import { Catalog, CodeSpecimen, ReactSpecimen } from 'catalog';
 
 import 'purecss/build/pure.css';
-import 'react-ghfork/gh-fork-ribbon.ie.css';
-import 'react-ghfork/gh-fork-ribbon.css';
 import './main.css';
 import '../style.css';
 
@@ -30,12 +28,13 @@ const pages = [
 // Catalog - logoSrc="../images/logo.png"
 ReactDOM.render(
   <div>
-    <Fork
-      className="right"
-      project={project}
-      style={{
-        backgroundColor: '#000'
-      }}
+    <GithubCorner
+      href={`https://github.com/${project}`}
+      bannerColor="#fff"
+      octoColor="#000"
+      width={80}
+      height={80}
+      direction="right"
     />
     <Catalog
       pages={pages}
