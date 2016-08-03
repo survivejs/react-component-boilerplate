@@ -22,6 +22,8 @@
     "postinstall": "node lib/post_install.js"
   },
   "main": "dist-modules",
+  "module": "src",
+  "jsnext:main": "src",
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
