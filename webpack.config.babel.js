@@ -126,18 +126,20 @@ if (TARGET === 'start') {
 function NamedModulesPlugin(options) {
   this.options = options || {};
 }
-NamedModulesPlugin.prototype.apply = function(compiler) {
-  compiler.plugin('compilation', function(compilation) {
-    compilation.plugin('before-module-ids', function(modules) {
-      modules.forEach(function(module) {
-        if(module.id === null && module.libIdent) {
-          var id = module.libIdent({
+NamedModulesPlugin.prototype.apply = function (compiler) {
+  compiler.plugin('compilation', function (compilation) {
+    compilation.plugin('before-module-ids', function (modules) {
+      modules.forEach(function (module) {
+        let id;
+
+        if (module.id === null && module.libIdent) {
+          id = module.libIdent({
             context: this.options.context || compiler.options.context
           });
 
           // Skip CSS files since those go through ExtractTextPlugin
-          if(!id.endsWith('.css')) {
-            module.id = id;
+          if (!id.endsWith('.css')) {
+            module.id = id; // eslint-disable-line no-param-reassign
           }
         }
       }, this);
@@ -222,7 +224,7 @@ if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
         }
       ]
     }
-  })
+  });
 }
 
 const distCommon = {
@@ -234,7 +236,7 @@ const distCommon = {
   },
   entry: config.paths.src,
   externals: {
-    'react': {
+    react: {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'React',
@@ -258,7 +260,7 @@ const distCommon = {
 if (TARGET === 'dist') {
   module.exports = merge(distCommon, {
     output: {
-      filename: config.filename + '.js'
+      filename: `${config.filename}.js`
     }
   });
 }
@@ -266,7 +268,7 @@ if (TARGET === 'dist') {
 if (TARGET === 'dist:min') {
   module.exports = merge(distCommon, {
     output: {
-      filename: config.filename + '.min.js'
+      filename: `${config.filename}.min.js`
     },
     plugins: [
       new webpack.optimize.UglifyJsPlugin({
