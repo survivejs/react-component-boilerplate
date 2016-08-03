@@ -9,9 +9,8 @@ import './main.css';
 import '../style.css';
 
 // Add your documentation imports here. These are available to
-// React specimen.
+// React specimen. Do NOT pass React here as Catalog does that.
 const documentationImports = {
-  React,
   ReactDOM
 };
 const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
@@ -20,8 +19,7 @@ const pages = [
   {
     path: '/',
     title: 'Introduction',
-    imports: documentationImports,
-    component: require('catalog/lib/loader!raw!../README.md')
+    component: require('../README.md')
   }
 ];
 
@@ -37,6 +35,7 @@ ReactDOM.render(
       direction="right"
     />
     <Catalog
+      imports={documentationImports}
       pages={pages}
       specimens={{
         javascript: props => <CodeSpecimen {...props} lang="javascript" />,

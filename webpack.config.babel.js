@@ -42,6 +42,10 @@ const common = {
     ],
     loaders: [
       {
+        test: /\.md$/,
+        loaders: ['catalog/lib/loader', 'raw']
+      },
+      {
         test: /\.png$/,
         loader: 'url?limit=100000&mimetype=image/png',
         include: config.paths.docs
