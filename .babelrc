@@ -3,6 +3,9 @@
     "es2015",
     "react"
   ],
+  "plugins": [
+    ["transform-react-remove-prop-types", {"mode": "wrap"}]
+  ],
   "env": {
     "start": {
       "presets": [
