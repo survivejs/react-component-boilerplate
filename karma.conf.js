@@ -1,4 +1,4 @@
-/* eslint-disable global-require */
+/* eslint-disable */
 // Reference: http://karma-runner.github.io/0.13/config/configuration-file.html
 require('babel-register');
 
@@ -13,6 +13,11 @@ module.exports = function karmaConfig(config) {
       // Use chai assertions
       'chai'
     ],
+
+    client: {
+      args: parseTestPattern(process.argv),
+      mocha: {}
+    },
 
     reporters: [
       // Reference: https://github.com/mlex/karma-spec-reporter
@@ -78,3 +83,20 @@ module.exports = function karmaConfig(config) {
     }
   });
 };
+
+function parseTestPattern(argv) {
+  var found = false;
+  var pattern = argv.map(function(v) {
+    if (found) {
+      return v;
+    }
+
+    if (v === '--') {
+      found = true;
+    }
+  }).
+  filter(function(a) { return a }).
+  join(' ');
+
+  return pattern ? ['--grep', pattern] : [];
+}
