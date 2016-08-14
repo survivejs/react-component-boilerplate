@@ -9,7 +9,7 @@ import merge from 'webpack-merge';
 
 const pkg = require('./package.json');
 
-const TARGET = process.env.npm_lifecycle_event;
+const TARGET = process.env.npm_lifecycle_event || '';
 const ROOT_PATH = __dirname;
 const config = {
   paths: {
@@ -201,13 +201,13 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
 }
 
 // !TARGET === prepush hook for test
-if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
+if (TARGET.startsWith('test') || !TARGET) {
   module.exports = merge(common, {
     module: {
       preLoaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['isparta', 'eslint'],
+          loaders: ['eslint'],
           include: [
             config.paths.tests
           ]
