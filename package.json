@@ -15,7 +15,6 @@
     "dist": "webpack",
     "dist:min": "webpack",
     "dist:modules": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
-    "pretest": "npm run test:lint",
     "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
     "prepublish": "npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
@@ -96,7 +95,6 @@
   ],
   "license": "MIT",
   "pre-push": [
-    "test",
-    "test:lint"
+    "test"
   ]
 }
