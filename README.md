@@ -21,8 +21,8 @@ If you want to replace project meta information (author etc.), consider using a 
 The test setup is based on Karma/Mocha/Chai/Phantom. Code coverage report is generated through istanbul/isparta to `build/`.
 
 * Running tests once - **npm test**
-* Running tests continuously - **npm run test:tdd**
-* Running individual tests - **npm test -- <pattern>** - Works with `test:tdd` too.
+* Running tests continuously - **npm run test:watch**
+* Running individual tests - **npm test -- <pattern>** - Works with `test:watch` too.
 * Linting - **npm run test:lint** - Runs ESLint.
 
 ### Documentation Site
