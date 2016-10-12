@@ -18,6 +18,7 @@ module.exports = {
     "no-unused-expressions": 0,
     "no-use-before-define": 0,
     "react/sort-comp": 0,
-    "react/no-multi-comp": 0
+    "react/no-multi-comp": 0,
+    "react/require-extension": 0
   }
 };
