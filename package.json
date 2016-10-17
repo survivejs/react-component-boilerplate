@@ -3,7 +3,7 @@
   "description": "Boilerplate for React.js components",
   "author": "Juho Vepsalainen",
   "user": "survivejs",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "karma start --",
