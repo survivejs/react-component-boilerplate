@@ -72,6 +72,7 @@ const siteCommon = {
     new HtmlWebpackPlugin({
       template: require('html-webpack-template'), // eslint-disable-line global-require
       inject: false,
+      mobile: true,
       title: pkg.name,
       appMountId: 'app'
     }),
