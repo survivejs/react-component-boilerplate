@@ -16,16 +16,6 @@
       "presets": [
         "react-hmre"
       ]
-    },
-    "test": {
-      "plugins": [
-        "istanbul"
-      ]
-    },
-    "test:tdd": {
-      "plugins": [
-        "istanbul"
-      ]
     }
   }
 }

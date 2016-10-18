@@ -201,33 +201,6 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
   });
 }
 
-// !TARGET === prepush hook for test
-if (TARGET.startsWith('test') || !TARGET) {
-  module.exports = merge(common, {
-    module: {
-      preLoaders: [
-        {
-          test: /\.jsx?$/,
-          loaders: ['eslint'],
-          include: [
-            config.paths.tests
-          ]
-        }
-      ],
-      loaders: [
-        {
-          test: /\.jsx?$/,
-          loaders: ['babel?cacheDirectory'],
-          include: [
-            config.paths.src,
-            config.paths.tests
-          ]
-        }
-      ]
-    }
-  });
-}
-
 const distCommon = {
   devtool: 'source-map',
   output: {
@@ -279,4 +252,8 @@ if (TARGET === 'dist:min') {
       })
     ]
   });
+}
+
+if (!TARGET) {
+  module.exports = common;
 }
