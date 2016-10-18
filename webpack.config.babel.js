@@ -16,8 +16,7 @@ const config = {
     readme: path.join(ROOT_PATH, 'README.md'),
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
-    docs: path.join(ROOT_PATH, 'docs'),
-    tests: path.join(ROOT_PATH, 'tests')
+    docs: path.join(ROOT_PATH, 'docs')
   },
   filename: 'boilerplate',
   library: 'Boilerplate'
@@ -124,30 +123,6 @@ if (TARGET === 'start') {
   });
 }
 
-function NamedModulesPlugin(options) {
-  this.options = options || {};
-}
-NamedModulesPlugin.prototype.apply = function (compiler) {
-  compiler.plugin('compilation', function (compilation) {
-    compilation.plugin('before-module-ids', function (modules) {
-      modules.forEach(function (module) {
-        let id;
-
-        if (module.id === null && module.libIdent) {
-          id = module.libIdent({
-            context: this.options.context || compiler.options.context
-          });
-
-          // Skip CSS files since those go through ExtractTextPlugin
-          if (!id.endsWith('.css')) {
-            module.id = id; // eslint-disable-line no-param-reassign
-          }
-        }
-      }, this);
-    }.bind(this));
-  }.bind(this));
-};
-
 if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
   module.exports = merge(common, siteCommon, {
     entry: {
@@ -171,16 +146,16 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
           // This affects the react lib size
         'process.env.NODE_ENV': '"production"'
       }),
-      new NamedModulesPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
         }
       }),
-      new webpack.optimize.CommonsChunkPlugin({
-        names: ['vendors', 'manifest']
-      })
+      new webpack.optimize.CommonsChunkPlugin(
+        'vendor',
+        '[name].[chunkhash].js'
+      )
     ],
     module: {
       loaders: [
