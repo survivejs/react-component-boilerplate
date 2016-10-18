@@ -79,6 +79,11 @@
   "bugs": {
     "url": "https://github.com/survivejs/react-component-boilerplate/issues"
   },
+  "jest": {
+    "collectCoverage": true,
+    "moduleFileExtensions": ["js", "jsx"],
+    "moduleDirectories": ["node_modules", "packages"]
+  },
   "keywords": [
     "react",
     "reactjs",
