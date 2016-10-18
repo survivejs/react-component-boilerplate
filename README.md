@@ -18,7 +18,7 @@ If you want to replace project meta information (author etc.), consider using a 
 
 ### Testing
 
-The test setup is based on Karma/Mocha/Chai/Phantom. Code coverage report is generated through istanbul/isparta to `build/`.
+The test setup is based on Jest. Code coverage report is generated to `coverage/`. The coverage information is also uploaded to codecov.io after a successful Travis build.
 
 * Running tests once - **npm test**
 * Running tests continuously - **npm run test:watch**
