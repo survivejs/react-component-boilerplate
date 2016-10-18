@@ -3,7 +3,7 @@
   "description": "Boilerplate for React.js components",
   "author": "Juho Vepsalainen",
   "user": "survivejs",
-  "version": "2.11.0",
+  "version": "3.0.0",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "jest --",
@@ -81,8 +81,14 @@
   },
   "jest": {
     "collectCoverage": true,
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["node_modules", "packages"]
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "packages"
+    ]
   },
   "keywords": [
     "react",
