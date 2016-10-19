@@ -8,7 +8,17 @@ This is a simple boilerplate that has been developed to make it easier to develo
 
 ## Basic Usage
 
-Clone the repo : `git clone https://github.com/survivejs/react-component-boilerplate my-component`
+Clone the repo : `git clone https://github.com/survivejs/react-component-boilerplate my-component`.
+
+To get started with fresh history, do this:
+
+1. `cd my-component`
+2. `rm -rf .git` - Remove Git database
+3. `git init` - Initialize a new Git repository
+4. `git add .` - Add all files to staging
+5. `git commit -am "Initial commit"` - Commit the files
+
+After this you should push the project to some remote.
 
 If you want to replace project meta information (author etc.), consider using a tool like [replace-project-meta](https://www.npmjs.com/package/replace-project-meta).
 
