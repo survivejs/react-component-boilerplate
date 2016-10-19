@@ -8,6 +8,8 @@ This is a simple boilerplate that has been developed to make it easier to develo
 
 ## Basic Usage
 
+Clone the repo : `git clone https://github.com/survivejs/react-component-boilerplate my-component`
+
 If you want to replace project meta information (author etc.), consider using a tool like [replace-project-meta](https://www.npmjs.com/package/replace-project-meta).
 
 ### Common Tasks
