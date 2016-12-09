@@ -10,9 +10,7 @@ import '../style.css';
 
 // Add your documentation imports here. These are available to
 // React specimen. Do NOT pass React here as Catalog does that.
-const documentationImports = {
-  ReactDOM
-};
+const documentationImports = {};
 const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
 const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
 const pages = [
