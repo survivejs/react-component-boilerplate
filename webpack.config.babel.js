@@ -13,7 +13,6 @@ const TARGET = process.env.npm_lifecycle_event || '';
 const ROOT_PATH = __dirname;
 const config = {
   paths: {
-    readme: path.join(ROOT_PATH, 'README.md'),
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
     docs: path.join(ROOT_PATH, 'docs')
