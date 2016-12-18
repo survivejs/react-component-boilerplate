@@ -6,9 +6,9 @@
   "version": "3.0.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "jest --",
-    "test:coverage": "jest --coverage --",
-    "test:watch": "jest --watch --",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
     "gh-pages": "webpack",
     "gh-pages:deploy": "gh-pages -d gh-pages",
