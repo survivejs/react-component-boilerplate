@@ -14,7 +14,8 @@ const config = {
   paths: {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
-    docs: path.join(ROOT_PATH, 'docs')
+    docs: path.join(ROOT_PATH, 'docs'),
+    ghPages: path.join(ROOT_PATH, 'gh-pages')
   },
   filename: 'boilerplate',
   library: 'Boilerplate'
@@ -119,7 +120,7 @@ const ghPages = merge(common, siteCommon, {
     app: config.paths.docs
   },
   output: {
-    path: './gh-pages',
+    path: config.paths.ghPages,
     filename: '[name].[chunkhash].js',
     chunkFilename: '[chunkhash].js'
   },
