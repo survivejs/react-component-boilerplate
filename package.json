@@ -10,7 +10,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
-    "gh-pages": "webpack --env ghpages",
+    "gh-pages": "webpack --env ghPages",
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --env ghPages --profile --json > stats.json",
     "dist": "webpack --env dist",
