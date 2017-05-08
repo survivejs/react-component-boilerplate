@@ -133,7 +133,6 @@ const ghPages = merge(common, siteCommon, {
         // This affects the react lib size
       'process.env.NODE_ENV': '"production"'
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
