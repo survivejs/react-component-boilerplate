@@ -23,12 +23,12 @@ const config = {
 
 const common = {
   resolve: {
-    extensions: ['.js', '.jsx', '.css', '.png', '.jpg']
+    extensions: ['.js', '.css', '.png', '.jpg']
   },
   module: {
     loaders: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         enforce: 'pre',
         use: 'eslint-loader',
         include: [
@@ -91,7 +91,7 @@ const dev = merge(common, siteCommon, {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -157,7 +157,7 @@ const ghPages = merge(common, siteCommon, {
         })
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         use: 'babel-loader',
         include: [
           config.paths.docs,
@@ -187,7 +187,7 @@ const distCommon = {
   module: {
     loaders: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         use: 'babel-loader',
         include: config.paths.src
       }
