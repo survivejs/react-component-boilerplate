@@ -1,5 +1,6 @@
 build/
 gh-pages/
+dist/
 dist-modules/
 node_modules/
 coverage/
