@@ -9,7 +9,6 @@ import merge from 'webpack-merge';
 
 const pkg = require('./package.json');
 
-const TARGET = process.env.npm_lifecycle_event || '';
 const ROOT_PATH = __dirname;
 const config = {
   paths: {
@@ -21,42 +20,33 @@ const config = {
   library: 'Boilerplate'
 };
 
-process.env.BABEL_ENV = TARGET;
-
 const common = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
+    extensions: ['.js', '.jsx', '.css', '.png', '.jpg']
   },
   module: {
-    preLoaders: [
+    loaders: [
       {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        use: 'eslint-loader',
         include: [
           config.paths.docs,
           config.paths.src
         ]
-      }
-    ],
-    loaders: [
+      },
       {
         test: /\.md$/,
-        loaders: ['catalog/lib/loader', 'raw']
+        use: ['catalog/lib/loader', 'raw-loader']
       },
       {
-        test: /\.png$/,
-        loader: 'url?limit=100000&mimetype=image/png',
-        include: config.paths.docs
-      },
-      {
-        test: /\.jpg$/,
-        loader: 'file',
-        include: config.paths.docs
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
-        include: path.join(ROOT_PATH, 'package.json')
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }
       }
     ]
   },
@@ -82,98 +72,101 @@ const siteCommon = {
   ]
 };
 
-if (TARGET === 'start') {
-  module.exports = merge(common, siteCommon, {
-    devtool: 'eval-source-map',
-    entry: {
-      docs: [config.paths.docs]
-    },
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"development"'
-      }),
-      new webpack.HotModuleReplacementPlugin()
-    ],
-    module: {
-      loaders: [
-        {
-          test: /\.css$/,
-          loaders: ['style', 'css']
+const dev = merge(common, siteCommon, {
+  devtool: 'eval-source-map',
+  entry: {
+    docs: [config.paths.docs]
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"development"'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true
+          }
         },
-        {
-          test: /\.jsx?$/,
-          loaders: ['babel?cacheDirectory'],
-          include: [
-            config.paths.docs,
-            config.paths.src
-          ]
-        }
-      ]
-    },
-    devServer: {
-      historyApiFallback: true,
-      hot: true,
-      inline: true,
-      progress: true,
-      host: process.env.HOST,
-      port: process.env.PORT,
-      stats: 'errors-only'
-    }
-  });
-}
+        include: [
+          config.paths.docs,
+          config.paths.src
+        ]
+      }
+    ]
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    host: process.env.HOST,
+    port: process.env.PORT,
+    stats: 'errors-only'
+  }
+});
 
-if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
-  module.exports = merge(common, siteCommon, {
-    entry: {
-      app: config.paths.docs,
-      vendors: [
-        'react',
-        'react-dom'
-      ]
-    },
-    output: {
-      path: './gh-pages',
-      filename: '[name].[chunkhash].js',
-      chunkFilename: '[chunkhash].js'
-    },
-    plugins: [
-      new CleanWebpackPlugin(['gh-pages'], {
-        verbose: false
-      }),
-      new ExtractTextPlugin('[name].[chunkhash].css'),
-      new webpack.DefinePlugin({
-          // This affects the react lib size
-        'process.env.NODE_ENV': '"production"'
-      }),
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      }),
-      new webpack.optimize.CommonsChunkPlugin(
-        'vendor',
-        '[name].[chunkhash].js'
-      )
-    ],
-    module: {
-      loaders: [
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css')
-        },
-        {
-          test: /\.jsx?$/,
-          loaders: ['babel'],
-          include: [
-            config.paths.docs,
-            config.paths.src
-          ]
-        }
-      ]
-    }
-  });
-}
+const ghPages = merge(common, siteCommon, {
+  entry: {
+    app: config.paths.docs
+  },
+  output: {
+    path: './gh-pages',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[chunkhash].js'
+  },
+  plugins: [
+    new CleanWebpackPlugin(['gh-pages'], {
+      verbose: false
+    }),
+    new ExtractTextPlugin('[name].[chunkhash].css'),
+    new webpack.DefinePlugin({
+        // This affects the react lib size
+      'process.env.NODE_ENV': '"production"'
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: ({ resource }) => (
+        resource &&
+        resource.indexOf('node_modules') >= 0 &&
+        resource.match(/\.js$/)
+      ),
+    })
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        include: [
+          config.paths.docs,
+          config.paths.src
+        ]
+      }
+    ]
+  }
+});
 
 const distCommon = {
   devtool: 'source-map',
@@ -194,8 +187,8 @@ const distCommon = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        loaders: ['babel'],
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
         include: config.paths.src
       }
     ]
@@ -205,29 +198,34 @@ const distCommon = {
   ]
 };
 
-if (TARGET === 'dist') {
-  module.exports = merge(distCommon, {
-    output: {
-      filename: `${config.filename}.js`
-    }
-  });
-}
+const dist = merge(distCommon, {
+  output: {
+    filename: `${config.filename}.js`
+  }
+});
 
-if (TARGET === 'dist:min') {
-  module.exports = merge(distCommon, {
-    output: {
-      filename: `${config.filename}.min.js`
-    },
-    plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      })
-    ]
-  });
-}
+const distMin = merge(distCommon, {
+  output: {
+    filename: `${config.filename}.min.js`
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]
+});
 
-if (!TARGET) {
-  module.exports = common;
-}
+module.exports = (env) => {
+  process.env.BABEL_ENV = env;
+
+  const targets = {
+    dev,
+    dist,
+    distMin,
+    ghPages
+  };
+
+  return targets[env] ? targets[env] : common;
+};
