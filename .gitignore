@@ -1,8 +1,10 @@
+.eslintcache
+.idea
 build/
-gh-pages/
+coverage/
 dist/
 dist-modules/
+gh-pages/
 node_modules/
-coverage/
 npm-debug.log
-.eslintcache
+stats.json
