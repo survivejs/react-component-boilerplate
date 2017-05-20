@@ -22,7 +22,17 @@
     "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
     "prepublish": "npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
-    "postinstall": "node lib/post_install.js"
+    "postinstall": "node lib/post_install.js",
+    "git:commitable": "git status | grep 'Changes to be committed:'",
+    "git:stash-pop": "git stash pop >> /dev/null",
+    "git:stash-rebase": "git read-tree stash && git stash drop",
+    "pre-commit:stash-unstaged": "git stash save -k --include-untracked 'unstaged-stash' >> /dev/null",
+    "pre-commit:lint-staged-or-pop": "(lint-staged && git add .) || (npm run git:stash-pop && exit 1)",
+    "pre-commit:commitable-or-pop": "npm run git:commitable || (npm run git:stash-pop && lint-staged && exit 1)",
+    "pre-commit:stash-linted": "git stash save 'linted-stash' >> /dev/null",
+    "pre-commit:pop-unstaged": "git stash pop stash@{1}",
+    "pre-commit:rebase-linted": "npm run git:stash-rebase",
+    "pre-commit:clean": "(lint-staged >> /dev/null) || exit 0"
   },
   "lint-staged": {
     "*.{cmd,html,json,md,sh,txt,xml,yml}": [
@@ -115,7 +125,15 @@
     "boilerplate"
   ],
   "license": "MIT",
-  "pre-commit": "lint:staged",
+  "pre-commit": [
+    "pre-commit:stash-unstaged",
+    "pre-commit:lint-staged-or-pop",
+    "pre-commit:commitable-or-pop",
+    "pre-commit:stash-linted",
+    "pre-commit:pop-unstaged",
+    "pre-commit:rebase-linted",
+    "pre-commit:clean"
+  ],
   "pre-push": [
     "test"
   ]
