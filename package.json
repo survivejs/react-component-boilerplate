@@ -13,7 +13,10 @@
     "lint:css": "stylelint \"src/**/*.{css,less,scss,sss}\"",
     "lint:staged": "lint-staged",
     "lint": "npm run lint:js && npm run lint:css",
-    "gh-pages": "webpack --env ghPages",
+    "gh-pages": "npm run gh-pages:readme && npm run gh-pages:storybook",
+    "gh-pages:readme": "webpack --env ghPages",
+    "gh-pages:storybook": "build-storybook -o gh-pages/storybook",
+    "gh-pages:opn": "opn gh-pages/index.html",
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --env ghPages --profile --json > stats.json",
     "dist": "webpack --env dist",
@@ -32,7 +35,8 @@
     "pre-commit:stash-linted": "git stash save 'linted-stash' >> /dev/null",
     "pre-commit:pop-unstaged": "git stash pop stash@{1}",
     "pre-commit:rebase-linted": "npm run git:stash-rebase",
-    "pre-commit:clean": "(lint-staged >> /dev/null) || exit 0"
+    "pre-commit:clean": "(lint-staged >> /dev/null) || exit 0",
+    "storybook": "start-storybook -p 6006 && opn localhost:6006"
   },
   "lint-staged": {
     "*.{cmd,html,json,md,sh,txt,xml,yml}": [
@@ -50,6 +54,8 @@
   "module": "src",
   "jsnext:main": "src",
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
+    "@storybook/cli": "^3.0.0-alpha.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
@@ -79,6 +85,7 @@
     "jest": "^20.0.0",
     "json-loader": "^0.5.4",
     "lint-staged": "^3.4.2",
+    "opn-cli": "^3.1.0",
     "pre-commit": "^1.2.2",
     "purecss": "^0.6.2",
     "raw-loader": "^0.5.1",
