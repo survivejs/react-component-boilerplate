@@ -35,7 +35,14 @@ The test setup is based on Jest. Code coverage report is generated to `coverage/
 * Running tests once - **npm test**
 * Running tests continuously - **npm run test:watch**
 * Running individual tests - **npm test -- <pattern>** - Works with `test:watch` too.
-* Linting - **npm run test:lint** - Runs ESLint.
+* Running automatically - pre-push hook of **git push**
+
+### Linting
+* Linting - **npm run lint** - Runs both **npm run lint:js** and **npm run lint:css**.
+* Linting js only - **npm run lint:js** - Runs ESLint.
+* Linting css only - **npm run lint:css** - Runs stylelint.
+* Linting & fixing staged files only - **npm run lint:staged** - Runs lint-staged.
+* Linting & fixing automatically - pre-commit hook of **git commit**
 
 ### Documentation Site
 
