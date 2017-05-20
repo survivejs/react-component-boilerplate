@@ -7,8 +7,8 @@
 // } from 'react-addons-test-utils';
 import { expect } from 'chai';
 
-describe('Boilerplate', function () {
-  it('should do boilerplate things', function () {
+describe('Boilerplate', () => {
+  it('should do boilerplate things', () => {
     // TODO: test something now
     expect(true).to.equal(true);
   });

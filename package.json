@@ -9,7 +9,10 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:lint": "eslint . --ignore-path .gitignore --ignore-pattern dist --cache",
+    "lint:js": "eslint . --ignore-path .gitignore --ignore-pattern dist --cache",
+    "lint:css": "stylelint \"src/**/*.{css,less,scss,sss}\"",
+    "lint:staged": "lint-staged",
+    "lint": "npm run lint:js && npm run lint:css",
     "gh-pages": "webpack --env ghPages",
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --env ghPages --profile --json > stats.json",
@@ -20,6 +23,18 @@
     "prepublish": "npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
     "postinstall": "node lib/post_install.js"
+  },
+  "lint-staged": {
+    "*.{cmd,html,json,md,sh,txt,xml,yml}": [
+      "editorconfig-tools fix"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix"
+    ],
+    "*.{css,less,scss,sss}": [
+      "stylefmt",
+      "stylelint"
+    ]
   },
   "main": "dist-modules",
   "module": "src",
@@ -38,6 +53,7 @@
     "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.1",
+    "editorconfig-tools": "^0.1.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.7.1",
@@ -52,6 +68,8 @@
     "html-webpack-template": "^6.0.1",
     "jest": "^20.0.0",
     "json-loader": "^0.5.4",
+    "lint-staged": "^3.4.2",
+    "pre-commit": "^1.2.2",
     "purecss": "^0.6.2",
     "raw-loader": "^0.5.1",
     "react": "^15.5.4",
@@ -60,6 +78,8 @@
     "react-github-corner": "^0.3.0",
     "rimraf": "^2.6.1",
     "style-loader": "^0.17.0",
+    "stylefmt": "^5.3.2",
+    "stylelint": "^7.10.1",
     "sync-exec": "^0.6.2",
     "system-bell-webpack-plugin": "^1.0.0",
     "url-loader": "^0.5.8",
@@ -95,6 +115,7 @@
     "boilerplate"
   ],
   "license": "MIT",
+  "pre-commit": "lint:staged",
   "pre-push": [
     "test"
   ]
