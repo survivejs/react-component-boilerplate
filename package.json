@@ -1,8 +1,8 @@
 {
-  "name": "react-component-boilerplate",
-  "description": "Boilerplate for React.js components",
-  "author": "Juho Vepsalainen",
-  "user": "survivejs",
+  "name": "stupid-rc-starter",
+  "description": "Boilerplate for React.js components with storybook",
+  "author": "Stupid Sun",
+  "user": "stupidism",
   "version": "5.0.0",
   "scripts": {
     "start": "webpack-dev-server --env dev",
@@ -109,11 +109,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/survivejs/react-component-boilerplate.git"
+    "url": "https://github.com/Stupidism/stupid-rc-starter.git"
   },
   "homepage": "https://survivejs.github.io/react-component-boilerplate/",
   "bugs": {
-    "url": "https://github.com/survivejs/react-component-boilerplate/issues"
+    "url": "https://github.com/Stupidism/stupid-rc-starter/issues"
   },
   "jest": {
     "collectCoverage": true,
@@ -129,7 +129,9 @@
   "keywords": [
     "react",
     "reactjs",
-    "boilerplate"
+    "boilerplate",
+    "starter-kit",
+    "storybook"
   ],
   "license": "MIT",
   "pre-commit": [
