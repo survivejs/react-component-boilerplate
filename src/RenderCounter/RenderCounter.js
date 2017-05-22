@@ -33,5 +33,5 @@ RenderCounter.propTypes = {
 
 export default compose(
   setDisplayName(RenderCounter.name),
-  withState('state', 'setState', { count: 0 }),
+  withState('state', 'setState', () => ({ count: 0 })),
 )(RenderCounter);
