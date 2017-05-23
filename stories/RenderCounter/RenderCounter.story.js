@@ -3,7 +3,7 @@ import withState from 'recompose/withState';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import RenderCounter from '../../src/RenderCounter/RenderCounter';
+import RenderCounter from '../../src/RenderCounter';
 
 const rerender = action('rerender');
 

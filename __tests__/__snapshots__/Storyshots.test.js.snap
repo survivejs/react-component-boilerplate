@@ -1,0 +1,680 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots RenderCounter multi-level 1`] = `
+<div
+  style={
+    Object {
+      "border": "solid 1px grey",
+      "display": "inline-block",
+      "padding": 5,
+    }
+  }
+>
+  <button
+    onClick={[Function]}
+  >
+    btn1
+    <div
+      style={
+        Object {
+          "backgroundColor": "#f95",
+          "borderRadius": "8px",
+          "color": "white",
+          "display": "inline-block",
+          "float": "right",
+          "fontSize": "8pt",
+          "fontWeight": "bold",
+          "padding": "1px 5px",
+          "textAlign": "center",
+          "top": "2px",
+        }
+      }
+    >
+      0
+    </div>
+  </button>
+  <div
+    style={
+      Object {
+        "border": "solid 1px grey",
+        "display": "inline-block",
+        "padding": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+    >
+      btn2
+      <div
+        style={
+          Object {
+            "backgroundColor": "#f95",
+            "borderRadius": "8px",
+            "color": "white",
+            "display": "inline-block",
+            "float": "right",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "padding": "1px 5px",
+            "textAlign": "center",
+            "top": "2px",
+          }
+        }
+      >
+        0
+      </div>
+    </button>
+    <div
+      style={
+        Object {
+          "border": "solid 1px grey",
+          "display": "inline-block",
+          "padding": 5,
+        }
+      }
+    >
+      <button
+        onClick={[Function]}
+      >
+        btn3
+        <div
+          style={
+            Object {
+              "backgroundColor": "#f95",
+              "borderRadius": "8px",
+              "color": "white",
+              "display": "inline-block",
+              "float": "right",
+              "fontSize": "8pt",
+              "fontWeight": "bold",
+              "padding": "1px 5px",
+              "textAlign": "center",
+              "top": "2px",
+            }
+          }
+        >
+          0
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RenderCounter nested 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "border": "solid 1px grey",
+        "display": "inline-block",
+        "padding": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+    >
+      clone-child-btn1
+      <div
+        style={
+          Object {
+            "backgroundColor": "#f95",
+            "borderRadius": "8px",
+            "color": "white",
+            "display": "inline-block",
+            "float": "right",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "padding": "1px 5px",
+            "textAlign": "center",
+            "top": "2px",
+          }
+        }
+      >
+        0
+      </div>
+    </button>
+    <div
+      style={
+        Object {
+          "border": "solid 1px grey",
+          "display": "inline-block",
+          "padding": 5,
+        }
+      }
+    >
+      <button
+        onClick={[Function]}
+      >
+        btn2
+        <div
+          style={
+            Object {
+              "backgroundColor": "#f95",
+              "borderRadius": "8px",
+              "color": "white",
+              "display": "inline-block",
+              "float": "right",
+              "fontSize": "8pt",
+              "fontWeight": "bold",
+              "padding": "1px 5px",
+              "textAlign": "center",
+              "top": "2px",
+            }
+          }
+        >
+          0
+        </div>
+      </button>
+      <div
+        style={
+          Object {
+            "border": "solid 1px grey",
+            "display": "inline-block",
+            "padding": 5,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+        >
+          btn3
+          <div
+            style={
+              Object {
+                "backgroundColor": "#f95",
+                "borderRadius": "8px",
+                "color": "white",
+                "display": "inline-block",
+                "float": "right",
+                "fontSize": "8pt",
+                "fontWeight": "bold",
+                "padding": "1px 5px",
+                "textAlign": "center",
+                "top": "2px",
+              }
+            }
+          >
+            0
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    style={
+      Object {
+        "border": "solid 1px grey",
+        "display": "inline-block",
+        "padding": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+    >
+      btn1
+      <div
+        style={
+          Object {
+            "backgroundColor": "#f95",
+            "borderRadius": "8px",
+            "color": "white",
+            "display": "inline-block",
+            "float": "right",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "padding": "1px 5px",
+            "textAlign": "center",
+            "top": "2px",
+          }
+        }
+      >
+        0
+      </div>
+    </button>
+    <div
+      style={
+        Object {
+          "border": "solid 1px grey",
+          "display": "inline-block",
+          "padding": 5,
+        }
+      }
+    >
+      <button
+        onClick={[Function]}
+      >
+        clone-child-btn2
+        <div
+          style={
+            Object {
+              "backgroundColor": "#f95",
+              "borderRadius": "8px",
+              "color": "white",
+              "display": "inline-block",
+              "float": "right",
+              "fontSize": "8pt",
+              "fontWeight": "bold",
+              "padding": "1px 5px",
+              "textAlign": "center",
+              "top": "2px",
+            }
+          }
+        >
+          0
+        </div>
+      </button>
+      <div
+        style={
+          Object {
+            "border": "solid 1px grey",
+            "display": "inline-block",
+            "padding": 5,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+        >
+          btn3
+          <div
+            style={
+              Object {
+                "backgroundColor": "#f95",
+                "borderRadius": "8px",
+                "color": "white",
+                "display": "inline-block",
+                "float": "right",
+                "fontSize": "8pt",
+                "fontWeight": "bold",
+                "padding": "1px 5px",
+                "textAlign": "center",
+                "top": "2px",
+              }
+            }
+          >
+            0
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    style={
+      Object {
+        "border": "solid 1px grey",
+        "display": "inline-block",
+        "padding": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+    >
+      clone-child-btn1
+      <div
+        style={
+          Object {
+            "backgroundColor": "#f95",
+            "borderRadius": "8px",
+            "color": "white",
+            "display": "inline-block",
+            "float": "right",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "padding": "1px 5px",
+            "textAlign": "center",
+            "top": "2px",
+          }
+        }
+      >
+        0
+      </div>
+    </button>
+    <div
+      style={
+        Object {
+          "border": "solid 1px grey",
+          "display": "inline-block",
+          "padding": 5,
+        }
+      }
+    >
+      <button
+        onClick={[Function]}
+      >
+        clone-child-btn2
+        <div
+          style={
+            Object {
+              "backgroundColor": "#f95",
+              "borderRadius": "8px",
+              "color": "white",
+              "display": "inline-block",
+              "float": "right",
+              "fontSize": "8pt",
+              "fontWeight": "bold",
+              "padding": "1px 5px",
+              "textAlign": "center",
+              "top": "2px",
+            }
+          }
+        >
+          0
+        </div>
+      </button>
+      <div
+        style={
+          Object {
+            "border": "solid 1px grey",
+            "display": "inline-block",
+            "padding": 5,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+        >
+          btn3
+          <div
+            style={
+              Object {
+                "backgroundColor": "#f95",
+                "borderRadius": "8px",
+                "color": "white",
+                "display": "inline-block",
+                "float": "right",
+                "fontSize": "8pt",
+                "fontWeight": "bold",
+                "padding": "1px 5px",
+                "textAlign": "center",
+                "top": "2px",
+              }
+            }
+          >
+            0
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RenderCounter single-level 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "border": "solid 1px grey",
+        "display": "inline-block",
+        "padding": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+    >
+      btn1
+      <div
+        style={
+          Object {
+            "backgroundColor": "#f95",
+            "borderRadius": "8px",
+            "color": "white",
+            "display": "inline-block",
+            "float": "right",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "padding": "1px 5px",
+            "textAlign": "center",
+            "top": "2px",
+          }
+        }
+      >
+        0
+      </div>
+    </button>
+  </div>
+  <br />
+  <div
+    style={
+      Object {
+        "border": "solid 1px grey",
+        "display": "inline-block",
+        "padding": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+    >
+      btn2
+      <div
+        style={
+          Object {
+            "backgroundColor": "#f95",
+            "borderRadius": "8px",
+            "color": "white",
+            "display": "inline-block",
+            "float": "right",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "padding": "1px 5px",
+            "textAlign": "center",
+            "top": "2px",
+          }
+        }
+      >
+        0
+      </div>
+    </button>
+  </div>
+  <br />
+  <div
+    style={
+      Object {
+        "border": "solid 1px grey",
+        "display": "inline-block",
+        "padding": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+    >
+      btn3
+      <div
+        style={
+          Object {
+            "backgroundColor": "#f95",
+            "borderRadius": "8px",
+            "color": "white",
+            "display": "inline-block",
+            "float": "right",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "padding": "1px 5px",
+            "textAlign": "center",
+            "top": "2px",
+          }
+        }
+      >
+        0
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Welcome to Storybook 1`] = `
+<div
+  style={
+    Object {
+      "fontFamily": "\\"Helvetica Neue\\", Helvetica, \\"Segoe UI\\", Arial, freesans, sans-serif",
+      "lineHeight": 1.4,
+      "margin": 15,
+      "maxWidth": 600,
+    }
+  }
+>
+  <h1>
+    Welcome to STORYBOOK
+  </h1>
+  <p>
+    This is a UI component dev environment for your app.
+  </p>
+  <p>
+    We've
+     added some basic stories inside the 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      src/stories
+    </code>
+     directory.
+    <br />
+    A story is a single state of one or more UI components. You can have as many stories as you want.
+    <br />
+    (Basically a story is like a visual test case.)
+  </p>
+  <p>
+    See these sample 
+    <a
+      href="#/"
+      onClick={[Function]}
+      style={
+        Object {
+          "borderBottom": "1px solid #1474f3",
+          "color": "#1474f3",
+          "paddingBottom": 2,
+          "textDecoration": "none",
+        }
+      }
+    >
+      stories
+    </a>
+     for a component called 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      RenderCounter
+    </code>
+    .
+  </p>
+  <p>
+    Just like that, you can add your own components as stories.
+    <br />
+    You can also edit those components and see changes right away.
+    <br />
+    (Try editing the 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      Button
+    </code>
+     component located at 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      src/stories/Button.js
+    </code>
+    .)
+  </p>
+  <p>
+    This is just one thing you can do with Storybook.
+    <br />
+    Have a look at the 
+    <a
+      href="https://github.com/kadirahq/react-storybook"
+      rel="noopener noreferrer"
+      style={
+        Object {
+          "borderBottom": "1px solid #1474f3",
+          "color": "#1474f3",
+          "paddingBottom": 2,
+          "textDecoration": "none",
+        }
+      }
+      target="_blank"
+    >
+      React Storybook
+    </a>
+     repo for more information.
+  </p>
+  <p
+    style={
+      Object {
+        "opacity": 0.5,
+      }
+    }
+  >
+    <b>
+      NOTE:
+    </b>
+    <br />
+    Have a look at the 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      .storybook/webpack.config.js
+    </code>
+     to add webpack loaders and plugins you are using in this project.
+  </p>
+</div>
+`;

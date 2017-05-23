@@ -62,6 +62,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^3.0.0-alpha.0",
     "@storybook/addon-links": "^3.0.0-alpha.0",
+    "@storybook/addon-storyshots": "^3.0.0-alpha.0",
     "@storybook/react": "^3.0.0-alpha.4",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -99,6 +100,7 @@
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.5.1",
     "react-github-corner": "^0.3.0",
+    "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "style-loader": "^0.17.0",
     "stylefmt": "^5.3.2",
@@ -123,8 +125,12 @@
   },
   "jest": {
     "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
     "moduleFileExtensions": [
       "js",
+      "json",
       "jsx"
     ],
     "moduleDirectories": [
