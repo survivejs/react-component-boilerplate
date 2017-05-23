@@ -1,6 +1,10 @@
-[![build status](https://secure.travis-ci.org/survivejs/react-component-boilerplate.svg)](http://travis-ci.org/survivejs/react-component-boilerplate) [![bitHound Score](https://www.bithound.io/github/survivejs/react-component-boilerplate/badges/score.svg)](https://www.bithound.io/github/survivejs/react-component-boilerplate) [![Dependency Status](https://david-dm.org/survivejs/react-component-boilerplate.svg)](https://david-dm.org/survivejs/react-component-boilerplate)
+[![Build Status](https://travis-ci.org/Stupidism/stupid-rc-starter.svg?branch=master)](https://travis-ci.org/Stupidism/stupid-rc-starter)
+[![bitHound Score](https://www.bithound.io/github/Stupidism/stupid-rc-starter/badges/score.svg)](https://www.bithound.io/github/Stupidism/stupid-rc-starter)
+[![codecov](https://codecov.io/gh/Stupidism/stupid-rc-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/Stupidism/stupid-rc-starter)
+[![Dependency Status](https://david-dm.org/Stupidism/stupid-rc-starter.svg)](https://david-dm.org/Stupidism/stupid-rc-starter)
+[![devDependencies Status](https://david-dm.org/Stupidism/stupid-rc-starter/dev-status.svg)](https://david-dm.org/Stupidism/stupid-rc-starter?type=dev)
 
-# react-component-boilerplate - Boilerplate for React.js components
+# stupid-rc-starter - Starter for React.js components
 
 This is a simple boilerplate that has been developed to make it easier to develop React components and small projects.
 
@@ -8,7 +12,7 @@ This is a simple boilerplate that has been developed to make it easier to develo
 
 ## Basic Usage
 
-Clone the repo : `git clone https://github.com/survivejs/react-component-boilerplate my-component`.
+Clone the repo : `git clone https://github.com/Stupidism/stupid-rc-starter my-component`.
 
 To get started with fresh history, do this:
 
@@ -35,11 +39,18 @@ The test setup is based on Jest. Code coverage report is generated to `coverage/
 * Running tests once - **npm test**
 * Running tests continuously - **npm run test:watch**
 * Running individual tests - **npm test -- <pattern>** - Works with `test:watch` too.
-* Linting - **npm run test:lint** - Runs ESLint.
+* Running automatically - pre-push hook of **git push**
+
+### Linting
+* Linting - **npm run lint** - Runs both **npm run lint:js** and **npm run lint:css**.
+* Linting js only - **npm run lint:js** - Runs ESLint.
+* Linting css only - **npm run lint:css** - Runs stylelint.
+* Linting & fixing staged files only - **npm run lint:staged** - Runs lint-staged.
+* Linting & fixing automatically - pre-commit hook of **git commit**
 
 ### Documentation Site
 
-The boilerplate includes a [GitHub Pages](https://pages.github.com/) specific portion for setting up a documentation site for the component. The main commands handle with the details for you. Sometimes you might want to generate and deploy it by hand, or just investigate the generated bundle.
+The starter includes a [GitHub Pages](https://pages.github.com/) specific portion for setting up a documentation site for the component. The main commands handle with the details for you. Sometimes you might want to generate and deploy it by hand, or just investigate the generated bundle.
 
 * Building - **npm run gh-pages** - Builds the documentation into `./gh-pages` directory.
 * Deploying - **npm run deploy-gh-pages** - Deploys the contents of `./gh-pages` to the `gh-pages` branch. GitHub will pick this up automatically. Your site will be available through *<user name>.github.io/<project name>`.
@@ -57,5 +68,5 @@ console.log(a + b);
 
 ## License
 
-*react-component-boilerplate* is available under MIT. See LICENSE for more details.
+*stupid-rc-starter* is available under MIT. See LICENSE for more details.
 

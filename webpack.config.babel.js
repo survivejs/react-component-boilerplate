@@ -15,15 +15,15 @@ const config = {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
     docs: path.join(ROOT_PATH, 'docs'),
-    ghPages: path.join(ROOT_PATH, 'gh-pages')
+    ghPages: path.join(ROOT_PATH, 'gh-pages'),
   },
   filename: 'boilerplate',
-  library: 'Boilerplate'
+  library: 'Boilerplate',
 };
 
 const common = {
   resolve: {
-    extensions: ['.js', '.css', '.png', '.jpg']
+    extensions: ['.js', '.css', '.png', '.jpg'],
   },
   module: {
     loaders: [
@@ -33,27 +33,27 @@ const common = {
         use: 'eslint-loader',
         include: [
           config.paths.docs,
-          config.paths.src
-        ]
+          config.paths.src,
+        ],
       },
       {
         test: /\.md$/,
-        use: ['catalog/lib/loader', 'raw-loader']
+        use: ['catalog/lib/loader', 'raw-loader'],
       },
       {
         test: /\.(jpg|png)$/,
         use: {
           loader: 'url-loader',
           options: {
-            limit: 10000
-          }
-        }
-      }
-    ]
+            limit: 10000,
+          },
+        },
+      },
+    ],
   },
   plugins: [
-    new SystemBellPlugin()
-  ]
+    new SystemBellPlugin(),
+  ],
 };
 
 const siteCommon = {
@@ -63,47 +63,47 @@ const siteCommon = {
       inject: false,
       mobile: true,
       title: pkg.name,
-      appMountId: 'app'
+      appMountId: 'app',
     }),
     new webpack.DefinePlugin({
       NAME: JSON.stringify(pkg.name),
       USER: JSON.stringify(pkg.user),
-      VERSION: JSON.stringify(pkg.version)
-    })
-  ]
+      VERSION: JSON.stringify(pkg.version),
+    }),
+  ],
 };
 
 const dev = merge(common, siteCommon, {
   devtool: 'eval-source-map',
   entry: {
-    docs: [config.paths.docs]
+    docs: [config.paths.docs],
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"development"'
+      'process.env.NODE_ENV': '"development"',
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     loaders: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
-          }
+            cacheDirectory: true,
+          },
         },
         include: [
           config.paths.docs,
-          config.paths.src
-        ]
-      }
-    ]
+          config.paths.src,
+        ],
+      },
+    ],
   },
   devServer: {
     historyApiFallback: true,
@@ -111,32 +111,32 @@ const dev = merge(common, siteCommon, {
     inline: true,
     host: process.env.HOST,
     port: process.env.PORT,
-    stats: 'errors-only'
-  }
+    stats: 'errors-only',
+  },
 });
 
 const ghPages = merge(common, siteCommon, {
   entry: {
-    app: config.paths.docs
+    app: config.paths.docs,
   },
   output: {
     path: config.paths.ghPages,
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[chunkhash].js'
+    chunkFilename: '[chunkhash].js',
   },
   plugins: [
     new CleanWebpackPlugin(['gh-pages'], {
-      verbose: false
+      verbose: false,
     }),
     new ExtractTextPlugin('[name].[chunkhash].css'),
     new webpack.DefinePlugin({
         // This affects the react lib size
-      'process.env.NODE_ENV': '"production"'
+      'process.env.NODE_ENV': '"production"',
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -144,8 +144,8 @@ const ghPages = merge(common, siteCommon, {
         resource &&
         resource.indexOf('node_modules') >= 0 &&
         resource.match(/\.js$/)
-      )
-    })
+      ),
+    }),
   ],
   module: {
     loaders: [
@@ -153,19 +153,19 @@ const ghPages = merge(common, siteCommon, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
-        })
+          use: 'css-loader',
+        }),
       },
       {
         test: /\.js$/,
         use: 'babel-loader',
         include: [
           config.paths.docs,
-          config.paths.src
-        ]
-      }
-    ]
-  }
+          config.paths.src,
+        ],
+      },
+    ],
+  },
 });
 
 const distCommon = {
@@ -173,7 +173,7 @@ const distCommon = {
   output: {
     path: config.paths.dist,
     libraryTarget: 'umd',
-    library: config.library
+    library: config.library,
   },
   entry: config.paths.src,
   externals: {
@@ -181,40 +181,40 @@ const distCommon = {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'React',
-      root: 'React'
-    }
+      root: 'React',
+    },
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         use: 'babel-loader',
-        include: config.paths.src
-      }
-    ]
+        include: config.paths.src,
+      },
+    ],
   },
   plugins: [
-    new SystemBellPlugin()
-  ]
+    new SystemBellPlugin(),
+  ],
 };
 
 const dist = merge(distCommon, {
   output: {
-    filename: `${config.filename}.js`
-  }
+    filename: `${config.filename}.js`,
+  },
 });
 
 const distMin = merge(distCommon, {
   output: {
-    filename: `${config.filename}.min.js`
+    filename: `${config.filename}.min.js`,
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
-    })
-  ]
+        warnings: false,
+      },
+    }),
+  ],
 });
 
 module.exports = (env) => {
@@ -224,7 +224,7 @@ module.exports = (env) => {
     dev,
     dist,
     distMin,
-    ghPages
+    ghPages,
   };
 
   return targets[env] ? targets[env] : common;

@@ -11,14 +11,18 @@ import '../style.css';
 // Add your documentation imports here. These are available to
 // React specimen. Do NOT pass React here as Catalog does that.
 const documentationImports = {};
-const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
-const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
+const title = `${NAME} v${VERSION}`;
+const project = `${USER}/${NAME}`;
 const pages = [
   {
     path: '/',
     title: 'Introduction',
-    component: require('../README.md')
-  }
+    component: require('../README.md'),
+  },
+  {
+    path: `${NAME}/storybook`,
+    title: 'Storybook',
+  },
 ];
 
 // Catalog - logoSrc="../images/logo.png"
@@ -38,10 +42,10 @@ ReactDOM.render(
       specimens={{
         javascript: props => <CodeSpecimen {...props} lang="javascript" />,
         js: props => <CodeSpecimen {...props} lang="javascript" />,
-        jsx: props => <ReactSpecimen {...props} />
+        jsx: props => <ReactSpecimen {...props} />,
       }}
       title={title}
     />
   </div>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
