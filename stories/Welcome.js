@@ -1,8 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { storiesOf, linkTo } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
+import { linkTo } from '@storybook/addon-links';
 
 /* eslint-disable max-len */
 

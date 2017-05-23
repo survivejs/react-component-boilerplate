@@ -1,9 +1,9 @@
 import React from 'react';
 import withState from 'recompose/withState';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { storiesOf, action } from '@kadira/storybook';
-import RenderCounter from './RenderCounter';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import RenderCounter from '../../src/RenderCounter/RenderCounter';
 
 const rerender = action('rerender');
 

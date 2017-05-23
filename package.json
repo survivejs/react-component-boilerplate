@@ -60,8 +60,9 @@
     "recompose": "^0.23.4"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
-    "@storybook/cli": "^3.0.0-alpha.0",
+    "@storybook/addon-actions": "^3.0.0-alpha.0",
+    "@storybook/addon-links": "^3.0.0-alpha.0",
+    "@storybook/react": "^3.0.0-alpha.4",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
