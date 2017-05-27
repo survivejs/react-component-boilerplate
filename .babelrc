@@ -17,6 +17,11 @@
         "react-hmre"
       ]
     },
+    "development": {
+      "presets": [
+        "es2015"
+      ]
+    },
     "modules": {
       "presets": [
         "es2015"
