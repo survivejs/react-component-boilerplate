@@ -22,6 +22,16 @@
         "es2015"
       ]
     },
+    "dist": {
+      "presets": [
+        "es2015"
+      ]
+    },
+    "distMin": {
+      "presets": [
+        "es2015"
+      ]
+    },
     "ghPages": {
       "presets": [
         "es2015"
