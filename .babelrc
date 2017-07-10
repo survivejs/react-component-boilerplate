@@ -22,6 +22,11 @@
         "es2015"
       ]
     },
+    "ghPages": {
+      "presets": [
+        "es2015"
+      ]
+    },
     "modules": {
       "presets": [
         "es2015"
