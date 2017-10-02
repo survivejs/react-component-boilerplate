@@ -13,7 +13,7 @@ Clone the repo : `git clone https://github.com/survivejs/react-component-boilerp
 To get started with fresh history, do this:
 
 1. `cd my-component`
-2. `rm -rf .git` - Remove Git database
+2. `rm -rf .git` (or in Windows `rmdir .git /S /Q`) - Remove Git database
 3. `git init` - Initialize a new Git repository
 4. `git add .` - Add all files to staging
 5. `git commit -am "Initial commit"` - Commit the files
