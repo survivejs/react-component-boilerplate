@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GithubCorner from 'react-github-corner';
-import { Catalog, CodeSpecimen, ReactSpecimen } from 'catalog';
+import { Catalog, CodeSpecimen, ReactSpecimen, pageLoader } from 'catalog';
 
 import 'purecss/build/pure.css';
 import './main.css';
@@ -11,13 +11,11 @@ import '../style.css';
 // Add your documentation imports here. These are available to
 // React specimen. Do NOT pass React here as Catalog does that.
 const documentationImports = {};
-const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
-const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
 const pages = [
   {
     path: '/',
     title: 'Introduction',
-    component: require('../README.md')
+    content: pageLoader(() => import('../README.md'))
   }
 ];
 
@@ -25,7 +23,7 @@ const pages = [
 ReactDOM.render(
   <div>
     <GithubCorner
-      href={`https://github.com/${project}`}
+      href="https://github.com/survivejs/react-component-boilerplate"
       bannerColor="#fff"
       octoColor="#000"
       width={80}
@@ -40,8 +38,8 @@ ReactDOM.render(
         js: props => <CodeSpecimen {...props} lang="javascript" />,
         jsx: props => <ReactSpecimen {...props} />
       }}
-      title={title}
+      title="Boilerplate"
     />
   </div>,
-  document.getElementById('app')
+  document.getElementById('catalog')
 );

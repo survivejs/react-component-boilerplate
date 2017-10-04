@@ -1,6 +1,4 @@
-build/
-gh-pages/
-dist/
+docs/build/
 dist-es6/
 dist-modules/
 node_modules/
