@@ -6,6 +6,9 @@ module.exports = {
     "jasmine": true,
     "node": true
   },
+  "globals": {
+    "test": true
+  },
   "plugins": [
     "react"
   ],
@@ -21,6 +24,7 @@ module.exports = {
     "react/jsx-filename-extension": 0,
     "react/sort-comp": 0,
     "react/no-multi-comp": 0,
-    "react/require-extension": 0
+    "react/require-extension": 0,
+    "react/prefer-stateless-function": 0
   }
 };
