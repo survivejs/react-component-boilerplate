@@ -17,12 +17,14 @@
     "preversion": "npm run test",
     "prepublishOnly": "npm run dist:es6 && npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
-    "postinstall": "node lib/post_install.js"
+    "postinstall": "node lib/post_install.js",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "main": "dist-modules",
   "module": "dist-es6",
   "jsnext:main": "dist-es6",
   "devDependencies": {
+    "@storybook/react": "^3.4.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
